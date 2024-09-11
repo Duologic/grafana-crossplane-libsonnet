@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "dependencies": [
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/Duologic/crossplane-namespaced-libsonnet.git",
+          "subdir": ""
+        }
+      },
+      "version": "c26e17ea5dbddf389e5e65217b679044eb9d627d",
+      "sum": "esRceW/DxhdnRea+DZTNJg6SGnl/Hb+vX+hi+0o8jOI="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/crdsonnet/astsonnet.git",
+          "subdir": ""
+        }
+      },
+      "version": "a771663cb9594cd10b30815933fe55554e6a3755",
+      "sum": "k/SJ+F+jjdg+dBMKczPEjcYCEuQ6v0BROdXKdXOCi9o="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/crdsonnet/crdsonnet.git",
+          "subdir": "crdsonnet"
+        }
+      },
+      "version": "f2f3c043f329edd4dd59ba89128258a59ee3363e",
+      "sum": "2nG91akk1UMbxn99gyQ1A29zn/5jiHM+0ovsw+DgCYM="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/crdsonnet/validate-libsonnet.git",
+          "subdir": ""
+        }
+      },
+      "version": "a78ca15fbfece3110c4807d1f059132ece01d97b",
+      "sum": "qYLH56MqvmgxE4YMNeTbuJ1XSsCpl1sumHN5x8IQv2I="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/jsonnet-libs/crossplane-libsonnet.git",
+          "subdir": "crossplane/1.14"
+        }
+      },
+      "version": "b8c879544f4292f788770373c900f9fde696a23b",
+      "sum": "40w1wppQmnIUUMoWAY5sd3rWl6HwKhIuSb/8XNBjJCY=",
+      "name": "crossplane"
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/jsonnet-libs/docsonnet.git",
+          "subdir": "doc-util"
+        }
+      },
+      "version": "6ac6c69685b8c29c54515448eaca583da2d88150",
+      "sum": "BrAL/k23jq+xy9oA7TWIhUx07dsA/QLm3g7ktCwe//U="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/jsonnet-libs/xtd.git",
+          "subdir": ""
+        }
+      },
+      "version": "63d430b69a95741061c2f7fc9d84b1a778511d9c",
+      "sum": "qiZi3axUSXCVzKUF83zSAxklwrnitMmrDK4XAfjPMdE="
+    }
+  ],
+  "legacyImports": false
+}
