@@ -1,5 +1,6 @@
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
-{
+(import './raw.libsonnet')
++ {
   '#': d.package.new(
     'grafanaplane',
     'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
@@ -7,6 +8,8 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
     'main.libsonnet',
     'main'
   ),
-  compositions: import './compositions.libsonnet',
-  lib: import './raw.libsonnet',
+
+  '#compositions': d.func.new(''),
+  compositions():
+    (import './compositions.libsonnet'),
 }
