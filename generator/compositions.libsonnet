@@ -1,11 +1,20 @@
 local namespaced = import './namespaced.libsonnet';
 
+local helpers = import 'github.com/crdsonnet/crdsonnet/crdsonnet/helpers.libsonnet';
+local crdsonnet = import 'github.com/crdsonnet/crdsonnet/crdsonnet/main.libsonnet';
+
 std.foldl(
-  function(acc, obj)
+  function(acc, def)
+    local group = helpers.getGroupKey(def.definition.spec.group, 'grafana.crossplane.io');
+    local version = 'v1alpha1';
+    local kind = helpers.camelCaseKind(crdsonnet.xrd.getKind(def.definition));
+
     acc + {
-      [std.splitLimit(obj.definition.spec.group, '.', 1)[0]]+: {
-        [std.splitLimit(obj.definition.spec.claimNames.plural, '.', 1)[0]]+:
-          [obj],
+      [group]+: {
+        [version]+: {
+          [kind]+:
+            def,
+        },
       },
     },
   namespaced,

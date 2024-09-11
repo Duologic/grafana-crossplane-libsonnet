@@ -1,4 +1,5 @@
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
+
 (import './raw.libsonnet')
 + {
   '#': d.package.new(
@@ -8,8 +9,4 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
     'main.libsonnet',
     'main'
   ),
-
-  '#compositions': d.func.new(''),
-  compositions():
-    (import './compositions.libsonnet'),
 }

@@ -1,7 +1,7 @@
 {
   alerting: {
-    contactpoints: [
-      {
+    v1alpha1: {
+      contactPoint: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -4038,9 +4038,7 @@
           },
         },
       },
-    ],
-    messagetemplates: [
-      {
+      messageTemplate: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -4679,9 +4677,7 @@
           },
         },
       },
-    ],
-    mutetimings: [
-      {
+      muteTiming: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -5424,9 +5420,7 @@
           },
         },
       },
-    ],
-    notificationpolicies: [
-      {
+      notificationPolicy: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -8113,9 +8107,7 @@
           },
         },
       },
-    ],
-    rulegroups: [
-      {
+      ruleGroup: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -9420,11 +9412,11 @@
           },
         },
       },
-    ],
+    },
   },
   cloud: {
-    accesspolicies: [
-      {
+    v1alpha1: {
+      accessPolicy: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -10079,9 +10071,7 @@
           },
         },
       },
-    ],
-    accesspolicytokens: [
-      {
+      accessPolicyToken: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -10738,9 +10728,7 @@
           },
         },
       },
-    ],
-    plugininstallations: [
-      {
+      pluginInstallation: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -11361,9 +11349,7 @@
           },
         },
       },
-    ],
-    stacks: [
-      {
+      stack: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -11860,9 +11846,7 @@
           },
         },
       },
-    ],
-    stackserviceaccounts: [
-      {
+      stackServiceAccount: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -12501,9 +12485,7 @@
           },
         },
       },
-    ],
-    stackserviceaccounttokens: [
-      {
+      stackServiceAccountToken: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -13360,11 +13342,11 @@
           },
         },
       },
-    ],
+    },
   },
   enterprise: {
-    datasourcepermissions: [
-      {
+    v1alpha1: {
+      dataSourcePermission: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -14327,9 +14309,7 @@
           },
         },
       },
-    ],
-    reports: [
-      {
+      report: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -15264,9 +15244,794 @@
           },
         },
       },
-    ],
-    roleassignments: [
-      {
+      role: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xroles.enterprise.grafana.crossplane.io.namespaced',
+            },
+            name: 'role-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'enterprise.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XRole',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'enterprise.grafana.crossplane.io/v1alpha1',
+                  kind: 'Role',
+                },
+                name: 'role',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.autoIncrementVersion',
+                    toFieldPath: 'spec.forProvider.autoIncrementVersion',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.description',
+                    toFieldPath: 'spec.forProvider.description',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.displayName',
+                    toFieldPath: 'spec.forProvider.displayName',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.global',
+                    toFieldPath: 'spec.forProvider.global',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.group',
+                    toFieldPath: 'spec.forProvider.group',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.hidden',
+                    toFieldPath: 'spec.forProvider.hidden',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.name',
+                    toFieldPath: 'spec.forProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.orgId',
+                    toFieldPath: 'spec.forProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
+                    toFieldPath: 'spec.forProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.permissions',
+                    toFieldPath: 'spec.forProvider.permissions',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.uid',
+                    toFieldPath: 'spec.forProvider.uid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.version',
+                    toFieldPath: 'spec.forProvider.version',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.autoIncrementVersion',
+                    toFieldPath: 'spec.initProvider.autoIncrementVersion',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.description',
+                    toFieldPath: 'spec.initProvider.description',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.displayName',
+                    toFieldPath: 'spec.initProvider.displayName',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.global',
+                    toFieldPath: 'spec.initProvider.global',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.group',
+                    toFieldPath: 'spec.initProvider.group',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.hidden',
+                    toFieldPath: 'spec.initProvider.hidden',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.name',
+                    toFieldPath: 'spec.initProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.orgId',
+                    toFieldPath: 'spec.initProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
+                    toFieldPath: 'spec.initProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.permissions',
+                    toFieldPath: 'spec.initProvider.permissions',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.uid',
+                    toFieldPath: 'spec.initProvider.uid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.version',
+                    toFieldPath: 'spec.initProvider.version',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xroles.enterprise.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'Role',
+              plural: 'roles',
+            },
+            defaultCompositionRef: {
+              name: 'role-namespaced',
+            },
+            group: 'enterprise.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XRole',
+              plural: 'xroles',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'RoleSpec defines the desired state of Role',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  autoIncrementVersion: {
+                                    description: '(Boolean) Whether the role version should be incremented automatically on updates (and set to 1 on creation). This field or version should be set.\nWhether the role version should be incremented automatically on updates (and set to 1 on creation). This field or `version` should be set.',
+                                    type: 'boolean',
+                                  },
+                                  description: {
+                                    description: '(String) Description of the role.\nDescription of the role.',
+                                    type: 'string',
+                                  },
+                                  displayName: {
+                                    description: '(String) Display name of the role. Available with Grafana 8.5+.\nDisplay name of the role. Available with Grafana 8.5+.',
+                                    type: 'string',
+                                  },
+                                  global: {
+                                    description: '(Boolean) Boolean to state whether the role is available across all organizations or not. Defaults to false.\nBoolean to state whether the role is available across all organizations or not. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  group: {
+                                    description: '(String) Group of the role. Available with Grafana 8.5+.\nGroup of the role. Available with Grafana 8.5+.',
+                                    type: 'string',
+                                  },
+                                  hidden: {
+                                    description: '(Boolean) Boolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to false.\nBoolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  name: {
+                                    description: '(String) Name of the role\nName of the role',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  permissions: {
+                                    description: '(Block Set) Specific set of actions granted by the role. (see below for nested schema)\nSpecific set of actions granted by the role.',
+                                    items: {
+                                      properties: {
+                                        action: {
+                                          description: '(String) Specific action users granted with the role will be allowed to perform (for example: users:read)\nSpecific action users granted with the role will be allowed to perform (for example: `users:read`)',
+                                          type: 'string',
+                                        },
+                                        scope: {
+                                          description: '(String) Scope to restrict the action to a set of resources (for example: users:* or roles:customrole1) Defaults to “.\nScope to restrict the action to a set of resources (for example: `users:*` or `roles:customrole1`) Defaults to “.',
+                                          type: 'string',
+                                        },
+                                      },
+                                      type: 'object',
+                                    },
+                                    type: 'array',
+                                  },
+                                  uid: {
+                                    description: '(String) Unique identifier of the role. Used for assignments.\nUnique identifier of the role. Used for assignments.',
+                                    type: 'string',
+                                  },
+                                  version: {
+                                    description: '(Number) Version of the role. A role is updated only on version increase. This field or auto_increment_version should be set.\nVersion of the role. A role is updated only on version increase. This field or `auto_increment_version` should be set.',
+                                    type: 'number',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  autoIncrementVersion: {
+                                    description: '(Boolean) Whether the role version should be incremented automatically on updates (and set to 1 on creation). This field or version should be set.\nWhether the role version should be incremented automatically on updates (and set to 1 on creation). This field or `version` should be set.',
+                                    type: 'boolean',
+                                  },
+                                  description: {
+                                    description: '(String) Description of the role.\nDescription of the role.',
+                                    type: 'string',
+                                  },
+                                  displayName: {
+                                    description: '(String) Display name of the role. Available with Grafana 8.5+.\nDisplay name of the role. Available with Grafana 8.5+.',
+                                    type: 'string',
+                                  },
+                                  global: {
+                                    description: '(Boolean) Boolean to state whether the role is available across all organizations or not. Defaults to false.\nBoolean to state whether the role is available across all organizations or not. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  group: {
+                                    description: '(String) Group of the role. Available with Grafana 8.5+.\nGroup of the role. Available with Grafana 8.5+.',
+                                    type: 'string',
+                                  },
+                                  hidden: {
+                                    description: '(Boolean) Boolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to false.\nBoolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  name: {
+                                    description: '(String) Name of the role\nName of the role',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  permissions: {
+                                    description: '(Block Set) Specific set of actions granted by the role. (see below for nested schema)\nSpecific set of actions granted by the role.',
+                                    items: {
+                                      properties: {
+                                        action: {
+                                          description: '(String) Specific action users granted with the role will be allowed to perform (for example: users:read)\nSpecific action users granted with the role will be allowed to perform (for example: `users:read`)',
+                                          type: 'string',
+                                        },
+                                        scope: {
+                                          description: '(String) Scope to restrict the action to a set of resources (for example: users:* or roles:customrole1) Defaults to “.\nScope to restrict the action to a set of resources (for example: `users:*` or `roles:customrole1`) Defaults to “.',
+                                          type: 'string',
+                                        },
+                                      },
+                                      type: 'object',
+                                    },
+                                    type: 'array',
+                                  },
+                                  uid: {
+                                    description: '(String) Unique identifier of the role. Used for assignments.\nUnique identifier of the role. Used for assignments.',
+                                    type: 'string',
+                                  },
+                                  version: {
+                                    description: '(Number) Version of the role. A role is updated only on version increase. This field or auto_increment_version should be set.\nVersion of the role. A role is updated only on version increase. This field or `auto_increment_version` should be set.',
+                                    type: 'number',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.name is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      roleAssignment: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -16789,798 +17554,7 @@
           },
         },
       },
-    ],
-    roles: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xroles.enterprise.grafana.crossplane.io.namespaced',
-            },
-            name: 'role-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'enterprise.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XRole',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'enterprise.grafana.crossplane.io/v1alpha1',
-                  kind: 'Role',
-                },
-                name: 'role',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.autoIncrementVersion',
-                    toFieldPath: 'spec.forProvider.autoIncrementVersion',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.description',
-                    toFieldPath: 'spec.forProvider.description',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.displayName',
-                    toFieldPath: 'spec.forProvider.displayName',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.global',
-                    toFieldPath: 'spec.forProvider.global',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.group',
-                    toFieldPath: 'spec.forProvider.group',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.hidden',
-                    toFieldPath: 'spec.forProvider.hidden',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.name',
-                    toFieldPath: 'spec.forProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.orgId',
-                    toFieldPath: 'spec.forProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
-                    toFieldPath: 'spec.forProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.permissions',
-                    toFieldPath: 'spec.forProvider.permissions',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.uid',
-                    toFieldPath: 'spec.forProvider.uid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.version',
-                    toFieldPath: 'spec.forProvider.version',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.autoIncrementVersion',
-                    toFieldPath: 'spec.initProvider.autoIncrementVersion',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.description',
-                    toFieldPath: 'spec.initProvider.description',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.displayName',
-                    toFieldPath: 'spec.initProvider.displayName',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.global',
-                    toFieldPath: 'spec.initProvider.global',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.group',
-                    toFieldPath: 'spec.initProvider.group',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.hidden',
-                    toFieldPath: 'spec.initProvider.hidden',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.name',
-                    toFieldPath: 'spec.initProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.orgId',
-                    toFieldPath: 'spec.initProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
-                    toFieldPath: 'spec.initProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.permissions',
-                    toFieldPath: 'spec.initProvider.permissions',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.uid',
-                    toFieldPath: 'spec.initProvider.uid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.version',
-                    toFieldPath: 'spec.initProvider.version',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xroles.enterprise.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'Role',
-              plural: 'roles',
-            },
-            defaultCompositionRef: {
-              name: 'role-namespaced',
-            },
-            group: 'enterprise.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XRole',
-              plural: 'xroles',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'RoleSpec defines the desired state of Role',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  autoIncrementVersion: {
-                                    description: '(Boolean) Whether the role version should be incremented automatically on updates (and set to 1 on creation). This field or version should be set.\nWhether the role version should be incremented automatically on updates (and set to 1 on creation). This field or `version` should be set.',
-                                    type: 'boolean',
-                                  },
-                                  description: {
-                                    description: '(String) Description of the role.\nDescription of the role.',
-                                    type: 'string',
-                                  },
-                                  displayName: {
-                                    description: '(String) Display name of the role. Available with Grafana 8.5+.\nDisplay name of the role. Available with Grafana 8.5+.',
-                                    type: 'string',
-                                  },
-                                  global: {
-                                    description: '(Boolean) Boolean to state whether the role is available across all organizations or not. Defaults to false.\nBoolean to state whether the role is available across all organizations or not. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  group: {
-                                    description: '(String) Group of the role. Available with Grafana 8.5+.\nGroup of the role. Available with Grafana 8.5+.',
-                                    type: 'string',
-                                  },
-                                  hidden: {
-                                    description: '(Boolean) Boolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to false.\nBoolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  name: {
-                                    description: '(String) Name of the role\nName of the role',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  permissions: {
-                                    description: '(Block Set) Specific set of actions granted by the role. (see below for nested schema)\nSpecific set of actions granted by the role.',
-                                    items: {
-                                      properties: {
-                                        action: {
-                                          description: '(String) Specific action users granted with the role will be allowed to perform (for example: users:read)\nSpecific action users granted with the role will be allowed to perform (for example: `users:read`)',
-                                          type: 'string',
-                                        },
-                                        scope: {
-                                          description: '(String) Scope to restrict the action to a set of resources (for example: users:* or roles:customrole1) Defaults to “.\nScope to restrict the action to a set of resources (for example: `users:*` or `roles:customrole1`) Defaults to “.',
-                                          type: 'string',
-                                        },
-                                      },
-                                      type: 'object',
-                                    },
-                                    type: 'array',
-                                  },
-                                  uid: {
-                                    description: '(String) Unique identifier of the role. Used for assignments.\nUnique identifier of the role. Used for assignments.',
-                                    type: 'string',
-                                  },
-                                  version: {
-                                    description: '(Number) Version of the role. A role is updated only on version increase. This field or auto_increment_version should be set.\nVersion of the role. A role is updated only on version increase. This field or `auto_increment_version` should be set.',
-                                    type: 'number',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  autoIncrementVersion: {
-                                    description: '(Boolean) Whether the role version should be incremented automatically on updates (and set to 1 on creation). This field or version should be set.\nWhether the role version should be incremented automatically on updates (and set to 1 on creation). This field or `version` should be set.',
-                                    type: 'boolean',
-                                  },
-                                  description: {
-                                    description: '(String) Description of the role.\nDescription of the role.',
-                                    type: 'string',
-                                  },
-                                  displayName: {
-                                    description: '(String) Display name of the role. Available with Grafana 8.5+.\nDisplay name of the role. Available with Grafana 8.5+.',
-                                    type: 'string',
-                                  },
-                                  global: {
-                                    description: '(Boolean) Boolean to state whether the role is available across all organizations or not. Defaults to false.\nBoolean to state whether the role is available across all organizations or not. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  group: {
-                                    description: '(String) Group of the role. Available with Grafana 8.5+.\nGroup of the role. Available with Grafana 8.5+.',
-                                    type: 'string',
-                                  },
-                                  hidden: {
-                                    description: '(Boolean) Boolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to false.\nBoolean to state whether the role should be visible in the Grafana UI or not. Available with Grafana 8.5+. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  name: {
-                                    description: '(String) Name of the role\nName of the role',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  permissions: {
-                                    description: '(Block Set) Specific set of actions granted by the role. (see below for nested schema)\nSpecific set of actions granted by the role.',
-                                    items: {
-                                      properties: {
-                                        action: {
-                                          description: '(String) Specific action users granted with the role will be allowed to perform (for example: users:read)\nSpecific action users granted with the role will be allowed to perform (for example: `users:read`)',
-                                          type: 'string',
-                                        },
-                                        scope: {
-                                          description: '(String) Scope to restrict the action to a set of resources (for example: users:* or roles:customrole1) Defaults to “.\nScope to restrict the action to a set of resources (for example: `users:*` or `roles:customrole1`) Defaults to “.',
-                                          type: 'string',
-                                        },
-                                      },
-                                      type: 'object',
-                                    },
-                                    type: 'array',
-                                  },
-                                  uid: {
-                                    description: '(String) Unique identifier of the role. Used for assignments.\nUnique identifier of the role. Used for assignments.',
-                                    type: 'string',
-                                  },
-                                  version: {
-                                    description: '(Number) Version of the role. A role is updated only on version increase. This field or auto_increment_version should be set.\nVersion of the role. A role is updated only on version increase. This field or `auto_increment_version` should be set.',
-                                    type: 'number',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.name is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    teamexternalgroups: [
-      {
+      teamExternalGroup: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -18187,11 +18161,11 @@
           },
         },
       },
-    ],
+    },
   },
   ml: {
-    holidays: [
-      {
+    v1alpha1: {
+      holiday: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -18652,9 +18626,7 @@
           },
         },
       },
-    ],
-    jobs: [
-      {
+      job: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -19457,9 +19429,7 @@
           },
         },
       },
-    ],
-    outlierdetectors: [
-      {
+      outlierDetector: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -20242,390 +20212,11 @@
           },
         },
       },
-    ],
+    },
   },
   oncall: {
-    escalationchains: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xescalationchains.oncall.grafana.crossplane.io.namespaced',
-            },
-            name: 'escalationchain-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'oncall.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XEscalationChain',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'oncall.grafana.crossplane.io/v1alpha1',
-                  kind: 'EscalationChain',
-                },
-                name: 'escalationchain',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.name',
-                    toFieldPath: 'spec.forProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.teamId',
-                    toFieldPath: 'spec.forProvider.teamId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.name',
-                    toFieldPath: 'spec.initProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.teamId',
-                    toFieldPath: 'spec.initProvider.teamId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xescalationchains.oncall.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'EscalationChain',
-              plural: 'escalationchains',
-            },
-            defaultCompositionRef: {
-              name: 'escalationchain-namespaced',
-            },
-            group: 'oncall.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XEscalationChain',
-              plural: 'xescalationchains',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'EscalationChainSpec defines the desired state of EscalationChain',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  name: {
-                                    description: '(String) The name of the escalation chain.\nThe name of the escalation chain.',
-                                    type: 'string',
-                                  },
-                                  teamId: {
-                                    description: '(String) The ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the grafana_oncall_team datasource.\nThe ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the `grafana_oncall_team` datasource.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  name: {
-                                    description: '(String) The name of the escalation chain.\nThe name of the escalation chain.',
-                                    type: 'string',
-                                  },
-                                  teamId: {
-                                    description: '(String) The ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the grafana_oncall_team datasource.\nThe ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the `grafana_oncall_team` datasource.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.name is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    escalations: [
-      {
+    v1alpha1: {
+      escalation: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -21886,9 +21477,384 @@
           },
         },
       },
-    ],
-    integrations: [
-      {
+      escalationChain: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xescalationchains.oncall.grafana.crossplane.io.namespaced',
+            },
+            name: 'escalationchain-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'oncall.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XEscalationChain',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'oncall.grafana.crossplane.io/v1alpha1',
+                  kind: 'EscalationChain',
+                },
+                name: 'escalationchain',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.name',
+                    toFieldPath: 'spec.forProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.teamId',
+                    toFieldPath: 'spec.forProvider.teamId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.name',
+                    toFieldPath: 'spec.initProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.teamId',
+                    toFieldPath: 'spec.initProvider.teamId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xescalationchains.oncall.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'EscalationChain',
+              plural: 'escalationchains',
+            },
+            defaultCompositionRef: {
+              name: 'escalationchain-namespaced',
+            },
+            group: 'oncall.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XEscalationChain',
+              plural: 'xescalationchains',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'EscalationChainSpec defines the desired state of EscalationChain',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  name: {
+                                    description: '(String) The name of the escalation chain.\nThe name of the escalation chain.',
+                                    type: 'string',
+                                  },
+                                  teamId: {
+                                    description: '(String) The ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the grafana_oncall_team datasource.\nThe ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the `grafana_oncall_team` datasource.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  name: {
+                                    description: '(String) The name of the escalation chain.\nThe name of the escalation chain.',
+                                    type: 'string',
+                                  },
+                                  teamId: {
+                                    description: '(String) The ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the grafana_oncall_team datasource.\nThe ID of the OnCall team. To get one, create a team in Grafana, and navigate to the OnCall plugin (to sync the team with OnCall). You can then get the ID using the `grafana_oncall_team` datasource.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.name is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      integration: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -22895,9 +22861,7 @@
           },
         },
       },
-    ],
-    oncallshifts: [
-      {
+      onCallShift: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -23582,9 +23546,7 @@
           },
         },
       },
-    ],
-    outgoingwebhooks: [
-      {
+      outgoingWebhook: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -24303,9 +24265,7 @@
           },
         },
       },
-    ],
-    routes: [
-      {
+      route: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -25316,9 +25276,7 @@
           },
         },
       },
-    ],
-    schedules: [
-      {
+      schedule: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -26069,9 +26027,7 @@
           },
         },
       },
-    ],
-    usernotificationrules: [
-      {
+      userNotificationRule: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -26506,11 +26462,11 @@
           },
         },
       },
-    ],
+    },
   },
   oss: {
-    annotations: [
-      {
+    v1alpha1: {
+      annotation: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -27429,9 +27385,882 @@
           },
         },
       },
-    ],
-    dashboardpermissions: [
-      {
+      dashboard: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xdashboards.oss.grafana.crossplane.io.namespaced',
+            },
+            name: 'dashboard-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XDashboard',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
+                  kind: 'Dashboard',
+                },
+                name: 'dashboard',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.configJson',
+                    toFieldPath: 'spec.forProvider.configJson',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folder',
+                    toFieldPath: 'spec.forProvider.folder',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.name',
+                    toFieldPath: 'spec.forProvider.folderRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.folderRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.folderRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.folderSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.folderSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.message',
+                    toFieldPath: 'spec.forProvider.message',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.orgId',
+                    toFieldPath: 'spec.forProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
+                    toFieldPath: 'spec.forProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.overwrite',
+                    toFieldPath: 'spec.forProvider.overwrite',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.configJson',
+                    toFieldPath: 'spec.initProvider.configJson',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folder',
+                    toFieldPath: 'spec.initProvider.folder',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.name',
+                    toFieldPath: 'spec.initProvider.folderRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.folderRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.folderRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.folderSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.folderSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.message',
+                    toFieldPath: 'spec.initProvider.message',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.orgId',
+                    toFieldPath: 'spec.initProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
+                    toFieldPath: 'spec.initProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.overwrite',
+                    toFieldPath: 'spec.initProvider.overwrite',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xdashboards.oss.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'Dashboard',
+              plural: 'dashboards',
+            },
+            defaultCompositionRef: {
+              name: 'dashboard-namespaced',
+            },
+            group: 'oss.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XDashboard',
+              plural: 'xdashboards',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'DashboardSpec defines the desired state of Dashboard',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  configJson: {
+                                    description: '(String) The complete dashboard model JSON.\nThe complete dashboard model JSON.',
+                                    type: 'string',
+                                  },
+                                  folder: {
+                                    description: '(String) The id or UID of the folder to save the dashboard in.\nThe id or UID of the folder to save the dashboard in.',
+                                    type: 'string',
+                                  },
+                                  folderRef: {
+                                    description: 'Reference to a Folder in oss to populate folder.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  folderSelector: {
+                                    description: 'Selector for a Folder in oss to populate folder.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  message: {
+                                    description: '(String) Set a commit message for the version history.\nSet a commit message for the version history.',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  overwrite: {
+                                    description: '(Boolean) Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.\nSet to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.',
+                                    type: 'boolean',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  configJson: {
+                                    description: '(String) The complete dashboard model JSON.\nThe complete dashboard model JSON.',
+                                    type: 'string',
+                                  },
+                                  folder: {
+                                    description: '(String) The id or UID of the folder to save the dashboard in.\nThe id or UID of the folder to save the dashboard in.',
+                                    type: 'string',
+                                  },
+                                  folderRef: {
+                                    description: 'Reference to a Folder in oss to populate folder.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  folderSelector: {
+                                    description: 'Selector for a Folder in oss to populate folder.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  message: {
+                                    description: '(String) Set a commit message for the version history.\nSet a commit message for the version history.',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  overwrite: {
+                                    description: '(Boolean) Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.\nSet to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.',
+                                    type: 'boolean',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.configJson is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.configJson) || (has(self.initProvider) && has(self.initProvider.configJson))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      dashboardPermission: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -28610,9 +29439,7 @@
           },
         },
       },
-    ],
-    dashboardpublics: [
-      {
+      dashboardPublic: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -29535,886 +30362,7 @@
           },
         },
       },
-    ],
-    dashboards: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xdashboards.oss.grafana.crossplane.io.namespaced',
-            },
-            name: 'dashboard-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XDashboard',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
-                  kind: 'Dashboard',
-                },
-                name: 'dashboard',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.configJson',
-                    toFieldPath: 'spec.forProvider.configJson',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folder',
-                    toFieldPath: 'spec.forProvider.folder',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.name',
-                    toFieldPath: 'spec.forProvider.folderRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.folderRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.folderRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.folderSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.folderSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.message',
-                    toFieldPath: 'spec.forProvider.message',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.orgId',
-                    toFieldPath: 'spec.forProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
-                    toFieldPath: 'spec.forProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.overwrite',
-                    toFieldPath: 'spec.forProvider.overwrite',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.configJson',
-                    toFieldPath: 'spec.initProvider.configJson',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folder',
-                    toFieldPath: 'spec.initProvider.folder',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.name',
-                    toFieldPath: 'spec.initProvider.folderRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.folderRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.folderRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.folderSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.folderSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.message',
-                    toFieldPath: 'spec.initProvider.message',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.orgId',
-                    toFieldPath: 'spec.initProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
-                    toFieldPath: 'spec.initProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.overwrite',
-                    toFieldPath: 'spec.initProvider.overwrite',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xdashboards.oss.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'Dashboard',
-              plural: 'dashboards',
-            },
-            defaultCompositionRef: {
-              name: 'dashboard-namespaced',
-            },
-            group: 'oss.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XDashboard',
-              plural: 'xdashboards',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'DashboardSpec defines the desired state of Dashboard',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  configJson: {
-                                    description: '(String) The complete dashboard model JSON.\nThe complete dashboard model JSON.',
-                                    type: 'string',
-                                  },
-                                  folder: {
-                                    description: '(String) The id or UID of the folder to save the dashboard in.\nThe id or UID of the folder to save the dashboard in.',
-                                    type: 'string',
-                                  },
-                                  folderRef: {
-                                    description: 'Reference to a Folder in oss to populate folder.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  folderSelector: {
-                                    description: 'Selector for a Folder in oss to populate folder.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  message: {
-                                    description: '(String) Set a commit message for the version history.\nSet a commit message for the version history.',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  overwrite: {
-                                    description: '(Boolean) Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.\nSet to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.',
-                                    type: 'boolean',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  configJson: {
-                                    description: '(String) The complete dashboard model JSON.\nThe complete dashboard model JSON.',
-                                    type: 'string',
-                                  },
-                                  folder: {
-                                    description: '(String) The id or UID of the folder to save the dashboard in.\nThe id or UID of the folder to save the dashboard in.',
-                                    type: 'string',
-                                  },
-                                  folderRef: {
-                                    description: 'Reference to a Folder in oss to populate folder.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  folderSelector: {
-                                    description: 'Selector for a Folder in oss to populate folder.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  message: {
-                                    description: '(String) Set a commit message for the version history.\nSet a commit message for the version history.',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  overwrite: {
-                                    description: '(Boolean) Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.\nSet to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.',
-                                    type: 'boolean',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.configJson is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.configJson) || (has(self.initProvider) && has(self.initProvider.configJson))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    datasources: [
-      {
+      dataSource: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -31312,9 +31260,882 @@
           },
         },
       },
-    ],
-    folderpermissions: [
-      {
+      folder: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xfolders.oss.grafana.crossplane.io.namespaced',
+            },
+            name: 'folder-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XFolder',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
+                  kind: 'Folder',
+                },
+                name: 'folder',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.name',
+                    toFieldPath: 'spec.forProvider.folderRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.folderRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.folderRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.folderSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.folderSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.orgId',
+                    toFieldPath: 'spec.forProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
+                    toFieldPath: 'spec.forProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.parentFolderUid',
+                    toFieldPath: 'spec.forProvider.parentFolderUid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.preventDestroyIfNotEmpty',
+                    toFieldPath: 'spec.forProvider.preventDestroyIfNotEmpty',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.title',
+                    toFieldPath: 'spec.forProvider.title',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.uid',
+                    toFieldPath: 'spec.forProvider.uid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.name',
+                    toFieldPath: 'spec.initProvider.folderRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.folderRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.folderRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.folderSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.folderSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.orgId',
+                    toFieldPath: 'spec.initProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
+                    toFieldPath: 'spec.initProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.parentFolderUid',
+                    toFieldPath: 'spec.initProvider.parentFolderUid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.preventDestroyIfNotEmpty',
+                    toFieldPath: 'spec.initProvider.preventDestroyIfNotEmpty',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.title',
+                    toFieldPath: 'spec.initProvider.title',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.uid',
+                    toFieldPath: 'spec.initProvider.uid',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xfolders.oss.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'Folder',
+              plural: 'folders',
+            },
+            defaultCompositionRef: {
+              name: 'folder-namespaced',
+            },
+            group: 'oss.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XFolder',
+              plural: 'xfolders',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'FolderSpec defines the desired state of Folder',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  folderRef: {
+                                    description: 'Reference to a Folder in oss to populate parentFolderUid.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  folderSelector: {
+                                    description: 'Selector for a Folder in oss to populate parentFolderUid.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  parentFolderUid: {
+                                    description: '(String) The uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.\nThe uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.',
+                                    type: 'string',
+                                  },
+                                  preventDestroyIfNotEmpty: {
+                                    description: '(Boolean) Prevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to false.\nPrevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  title: {
+                                    description: '(String) The title of the folder.\nThe title of the folder.',
+                                    type: 'string',
+                                  },
+                                  uid: {
+                                    description: '(String) Unique identifier.\nUnique identifier.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  folderRef: {
+                                    description: 'Reference to a Folder in oss to populate parentFolderUid.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  folderSelector: {
+                                    description: 'Selector for a Folder in oss to populate parentFolderUid.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  parentFolderUid: {
+                                    description: '(String) The uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.\nThe uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.',
+                                    type: 'string',
+                                  },
+                                  preventDestroyIfNotEmpty: {
+                                    description: '(Boolean) Prevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to false.\nPrevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  title: {
+                                    description: '(String) The title of the folder.\nThe title of the folder.',
+                                    type: 'string',
+                                  },
+                                  uid: {
+                                    description: '(String) Unique identifier.\nUnique identifier.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.title is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.title) || (has(self.initProvider) && has(self.initProvider.title))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      folderPermission: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -32493,886 +33314,7 @@
           },
         },
       },
-    ],
-    folders: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xfolders.oss.grafana.crossplane.io.namespaced',
-            },
-            name: 'folder-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XFolder',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
-                  kind: 'Folder',
-                },
-                name: 'folder',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.name',
-                    toFieldPath: 'spec.forProvider.folderRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.folderRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.folderRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.folderSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.folderSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.folderSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.folderSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.orgId',
-                    toFieldPath: 'spec.forProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
-                    toFieldPath: 'spec.forProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.parentFolderUid',
-                    toFieldPath: 'spec.forProvider.parentFolderUid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.preventDestroyIfNotEmpty',
-                    toFieldPath: 'spec.forProvider.preventDestroyIfNotEmpty',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.title',
-                    toFieldPath: 'spec.forProvider.title',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.uid',
-                    toFieldPath: 'spec.forProvider.uid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.name',
-                    toFieldPath: 'spec.initProvider.folderRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.folderRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.folderRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.folderSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.folderSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.folderSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.folderSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.orgId',
-                    toFieldPath: 'spec.initProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
-                    toFieldPath: 'spec.initProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.parentFolderUid',
-                    toFieldPath: 'spec.initProvider.parentFolderUid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.preventDestroyIfNotEmpty',
-                    toFieldPath: 'spec.initProvider.preventDestroyIfNotEmpty',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.title',
-                    toFieldPath: 'spec.initProvider.title',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.uid',
-                    toFieldPath: 'spec.initProvider.uid',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xfolders.oss.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'Folder',
-              plural: 'folders',
-            },
-            defaultCompositionRef: {
-              name: 'folder-namespaced',
-            },
-            group: 'oss.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XFolder',
-              plural: 'xfolders',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'FolderSpec defines the desired state of Folder',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  folderRef: {
-                                    description: 'Reference to a Folder in oss to populate parentFolderUid.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  folderSelector: {
-                                    description: 'Selector for a Folder in oss to populate parentFolderUid.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  parentFolderUid: {
-                                    description: '(String) The uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.\nThe uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.',
-                                    type: 'string',
-                                  },
-                                  preventDestroyIfNotEmpty: {
-                                    description: '(Boolean) Prevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to false.\nPrevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  title: {
-                                    description: '(String) The title of the folder.\nThe title of the folder.',
-                                    type: 'string',
-                                  },
-                                  uid: {
-                                    description: '(String) Unique identifier.\nUnique identifier.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  folderRef: {
-                                    description: 'Reference to a Folder in oss to populate parentFolderUid.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  folderSelector: {
-                                    description: 'Selector for a Folder in oss to populate parentFolderUid.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  parentFolderUid: {
-                                    description: '(String) The uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.\nThe uid of the parent folder. If set, the folder will be nested. If not set, the folder will be created in the root folder. Note: This requires the nestedFolders feature flag to be enabled on your Grafana instance.',
-                                    type: 'string',
-                                  },
-                                  preventDestroyIfNotEmpty: {
-                                    description: '(Boolean) Prevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to false.\nPrevent deletion of the folder if it is not empty (contains dashboards or alert rules). This feature requires Grafana 10.2 or later. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  title: {
-                                    description: '(String) The title of the folder.\nThe title of the folder.',
-                                    type: 'string',
-                                  },
-                                  uid: {
-                                    description: '(String) Unique identifier.\nUnique identifier.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.title is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.title) || (has(self.initProvider) && has(self.initProvider.title))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    librarypanels: [
-      {
+      libraryPanel: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -34251,9 +34193,506 @@
           },
         },
       },
-    ],
-    organizationpreferences: [
-      {
+      organization: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xorganizations.oss.grafana.crossplane.io.namespaced',
+            },
+            name: 'organization-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XOrganization',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
+                  kind: 'Organization',
+                },
+                name: 'organization',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.adminUser',
+                    toFieldPath: 'spec.forProvider.adminUser',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.admins',
+                    toFieldPath: 'spec.forProvider.admins',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.createUsers',
+                    toFieldPath: 'spec.forProvider.createUsers',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.editors',
+                    toFieldPath: 'spec.forProvider.editors',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.name',
+                    toFieldPath: 'spec.forProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.usersWithoutAccess',
+                    toFieldPath: 'spec.forProvider.usersWithoutAccess',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.viewers',
+                    toFieldPath: 'spec.forProvider.viewers',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.adminUser',
+                    toFieldPath: 'spec.initProvider.adminUser',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.admins',
+                    toFieldPath: 'spec.initProvider.admins',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.createUsers',
+                    toFieldPath: 'spec.initProvider.createUsers',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.editors',
+                    toFieldPath: 'spec.initProvider.editors',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.name',
+                    toFieldPath: 'spec.initProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.usersWithoutAccess',
+                    toFieldPath: 'spec.initProvider.usersWithoutAccess',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.viewers',
+                    toFieldPath: 'spec.initProvider.viewers',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xorganizations.oss.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'Organization',
+              plural: 'organizations',
+            },
+            defaultCompositionRef: {
+              name: 'organization-namespaced',
+            },
+            group: 'oss.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XOrganization',
+              plural: 'xorganizations',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'OrganizationSpec defines the desired state of Organization',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  adminUser: {
+                                    description: '(String) The login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to admin.\nThe login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to `admin`.',
+                                    type: 'string',
+                                  },
+                                  admins: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  createUsers: {
+                                    description: "(Boolean) Whether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to true.\nWhether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to `true`.",
+                                    type: 'boolean',
+                                  },
+                                  editors: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  name: {
+                                    description: '(String) The display name for the Grafana organization created.\nThe display name for the Grafana organization created.',
+                                    type: 'string',
+                                  },
+                                  usersWithoutAccess: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.\nA list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  viewers: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  adminUser: {
+                                    description: '(String) The login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to admin.\nThe login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to `admin`.',
+                                    type: 'string',
+                                  },
+                                  admins: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  createUsers: {
+                                    description: "(Boolean) Whether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to true.\nWhether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to `true`.",
+                                    type: 'boolean',
+                                  },
+                                  editors: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  name: {
+                                    description: '(String) The display name for the Grafana organization created.\nThe display name for the Grafana organization created.',
+                                    type: 'string',
+                                  },
+                                  usersWithoutAccess: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.\nA list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                  viewers: {
+                                    description: "(Set of String) A list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
+                                    items: {
+                                      type: 'string',
+                                    },
+                                    type: 'array',
+                                    'x-kubernetes-list-type': 'set',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.name is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      organizationPreferences: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -34900,510 +35339,7 @@
           },
         },
       },
-    ],
-    organizations: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xorganizations.oss.grafana.crossplane.io.namespaced',
-            },
-            name: 'organization-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XOrganization',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
-                  kind: 'Organization',
-                },
-                name: 'organization',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.adminUser',
-                    toFieldPath: 'spec.forProvider.adminUser',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.admins',
-                    toFieldPath: 'spec.forProvider.admins',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.createUsers',
-                    toFieldPath: 'spec.forProvider.createUsers',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.editors',
-                    toFieldPath: 'spec.forProvider.editors',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.name',
-                    toFieldPath: 'spec.forProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.usersWithoutAccess',
-                    toFieldPath: 'spec.forProvider.usersWithoutAccess',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.viewers',
-                    toFieldPath: 'spec.forProvider.viewers',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.adminUser',
-                    toFieldPath: 'spec.initProvider.adminUser',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.admins',
-                    toFieldPath: 'spec.initProvider.admins',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.createUsers',
-                    toFieldPath: 'spec.initProvider.createUsers',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.editors',
-                    toFieldPath: 'spec.initProvider.editors',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.name',
-                    toFieldPath: 'spec.initProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.usersWithoutAccess',
-                    toFieldPath: 'spec.initProvider.usersWithoutAccess',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.viewers',
-                    toFieldPath: 'spec.initProvider.viewers',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xorganizations.oss.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'Organization',
-              plural: 'organizations',
-            },
-            defaultCompositionRef: {
-              name: 'organization-namespaced',
-            },
-            group: 'oss.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XOrganization',
-              plural: 'xorganizations',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'OrganizationSpec defines the desired state of Organization',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  adminUser: {
-                                    description: '(String) The login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to admin.\nThe login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to `admin`.',
-                                    type: 'string',
-                                  },
-                                  admins: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  createUsers: {
-                                    description: "(Boolean) Whether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to true.\nWhether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to `true`.",
-                                    type: 'boolean',
-                                  },
-                                  editors: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  name: {
-                                    description: '(String) The display name for the Grafana organization created.\nThe display name for the Grafana organization created.',
-                                    type: 'string',
-                                  },
-                                  usersWithoutAccess: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.\nA list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  viewers: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  adminUser: {
-                                    description: '(String) The login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to admin.\nThe login name of the configured default admin user for the Grafana\ninstallation. If unset, this value defaults to admin, the Grafana default.\nDefaults to `admin`.',
-                                    type: 'string',
-                                  },
-                                  admins: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given admin\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  createUsers: {
-                                    description: "(Boolean) Whether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to true.\nWhether or not to create Grafana users specified in the organization's\nmembership if they don't already exist in Grafana. If unspecified, this\nparameter defaults to true, creating placeholder users with the name, login,\nand email set to the email of the user, and a random password. Setting this\noption to false will cause an error to be thrown for any users that do not\nalready exist in Grafana.\nDefaults to `true`.",
-                                    type: 'boolean',
-                                  },
-                                  editors: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given editor\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  name: {
-                                    description: '(String) The display name for the Grafana organization created.\nThe display name for the Grafana organization created.',
-                                    type: 'string',
-                                  },
-                                  usersWithoutAccess: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.\nA list of email addresses corresponding to users who should be given none access to the organization.\nNote: users specified here must already exist in Grafana, unless 'create_users' is\nset to true. This feature is only available in Grafana 10.2+.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                  viewers: {
-                                    description: "(Set of String) A list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.\nA list of email addresses corresponding to users who should be given viewer\naccess to the organization. Note: users specified here must already exist in\nGrafana unless 'create_users' is set to true.",
-                                    items: {
-                                      type: 'string',
-                                    },
-                                    type: 'array',
-                                    'x-kubernetes-list-type': 'set',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.name is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    playlists: [
-      {
+      playlist: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -36088,9 +36024,646 @@
           },
         },
       },
-    ],
-    serviceaccountpermissions: [
-      {
+      serviceAccount: {
+        composition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'Composition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            labels: {
+              'crossplane.io/xrd': 'xserviceaccounts.oss.grafana.crossplane.io.namespaced',
+            },
+            name: 'serviceaccount-namespaced',
+          },
+          spec: {
+            compositeTypeRef: {
+              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
+              kind: 'XServiceAccount',
+            },
+            resources: [
+              {
+                base: {
+                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
+                  kind: 'ServiceAccount',
+                },
+                name: 'serviceaccount',
+                patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.deletionPolicy',
+                    toFieldPath: 'spec.deletionPolicy',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.isDisabled',
+                    toFieldPath: 'spec.forProvider.isDisabled',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.name',
+                    toFieldPath: 'spec.forProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.orgId',
+                    toFieldPath: 'spec.forProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
+                    toFieldPath: 'spec.forProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.forProvider.role',
+                    toFieldPath: 'spec.forProvider.role',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.isDisabled',
+                    toFieldPath: 'spec.initProvider.isDisabled',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.name',
+                    toFieldPath: 'spec.initProvider.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.orgId',
+                    toFieldPath: 'spec.initProvider.orgId',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
+                    toFieldPath: 'spec.initProvider.organizationRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
+                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
+                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.initProvider.role',
+                    toFieldPath: 'spec.initProvider.role',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.managementPolicies',
+                    toFieldPath: 'spec.managementPolicies',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
+                    toFieldPath: 'spec.providerConfigRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
+                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
+                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
+                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
+                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
+                    type: 'FromCompositeFieldPath',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        definition: {
+          apiVersion: 'apiextensions.crossplane.io/v1',
+          kind: 'CompositeResourceDefinition',
+          metadata: {
+            annotations: {
+              'tanka.dev/namespaced': 'false',
+            },
+            name: 'xserviceaccounts.oss.grafana.crossplane.io.namespaced',
+          },
+          spec: {
+            claimNames: {
+              kind: 'ServiceAccount',
+              plural: 'serviceaccounts',
+            },
+            defaultCompositionRef: {
+              name: 'serviceaccount-namespaced',
+            },
+            group: 'oss.grafana.crossplane.io.namespaced',
+            names: {
+              kind: 'XServiceAccount',
+              plural: 'xserviceaccounts',
+            },
+            versions: [
+              {
+                name: 'v1alpha1',
+                referenceable: true,
+                schema: {
+                  openAPIV3Schema: {
+                    properties: {
+                      apiVersion: {
+                        type: 'string',
+                      },
+                      kind: {
+                        type: 'string',
+                      },
+                      metadata: {
+                        type: 'object',
+                      },
+                      spec: {
+                        properties: {
+                          parameters: {
+                            description: 'ServiceAccountSpec defines the desired state of ServiceAccount',
+                            properties: {
+                              deletionPolicy: {
+                                default: 'Delete',
+                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
+                                enum: [
+                                  'Orphan',
+                                  'Delete',
+                                ],
+                                type: 'string',
+                              },
+                              forProvider: {
+                                properties: {
+                                  isDisabled: {
+                                    description: '(Boolean) The disabled status for the service account. Defaults to false.\nThe disabled status for the service account. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  name: {
+                                    description: '(String) The name of the service account.\nThe name of the service account.',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  role: {
+                                    description: '(String) The basic role of the service account in the organization.\nThe basic role of the service account in the organization.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              initProvider: {
+                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
+                                properties: {
+                                  isDisabled: {
+                                    description: '(Boolean) The disabled status for the service account. Defaults to false.\nThe disabled status for the service account. Defaults to `false`.',
+                                    type: 'boolean',
+                                  },
+                                  name: {
+                                    description: '(String) The name of the service account.\nThe name of the service account.',
+                                    type: 'string',
+                                  },
+                                  orgId: {
+                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
+                                    type: 'string',
+                                  },
+                                  organizationRef: {
+                                    description: 'Reference to a Organization in oss to populate orgId.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  organizationSelector: {
+                                    description: 'Selector for a Organization in oss to populate orgId.',
+                                    properties: {
+                                      matchControllerRef: {
+                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
+                                        type: 'boolean',
+                                      },
+                                      matchLabels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'MatchLabels ensures an object with matching labels is selected.',
+                                        type: 'object',
+                                      },
+                                      policy: {
+                                        description: 'Policies for selection.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  role: {
+                                    description: '(String) The basic role of the service account in the organization.\nThe basic role of the service account in the organization.',
+                                    type: 'string',
+                                  },
+                                },
+                                type: 'object',
+                              },
+                              managementPolicies: {
+                                default: [
+                                  '*',
+                                ],
+                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
+                                items: {
+                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
+                                  enum: [
+                                    'Observe',
+                                    'Create',
+                                    'Update',
+                                    'Delete',
+                                    'LateInitialize',
+                                    '*',
+                                  ],
+                                  type: 'string',
+                                },
+                                type: 'array',
+                              },
+                              providerConfigRef: {
+                                default: {
+                                  name: 'default',
+                                },
+                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the referenced object.',
+                                    type: 'string',
+                                  },
+                                  policy: {
+                                    description: 'Policies for referencing.',
+                                    properties: {
+                                      resolution: {
+                                        default: 'Required',
+                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                        enum: [
+                                          'Required',
+                                          'Optional',
+                                        ],
+                                        type: 'string',
+                                      },
+                                      resolve: {
+                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                        enum: [
+                                          'Always',
+                                          'IfNotPresent',
+                                        ],
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              publishConnectionDetailsTo: {
+                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
+                                properties: {
+                                  configRef: {
+                                    default: {
+                                      name: 'default',
+                                    },
+                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
+                                    properties: {
+                                      name: {
+                                        description: 'Name of the referenced object.',
+                                        type: 'string',
+                                      },
+                                      policy: {
+                                        description: 'Policies for referencing.',
+                                        properties: {
+                                          resolution: {
+                                            default: 'Required',
+                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                            enum: [
+                                              'Required',
+                                              'Optional',
+                                            ],
+                                            type: 'string',
+                                          },
+                                          resolve: {
+                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                            enum: [
+                                              'Always',
+                                              'IfNotPresent',
+                                            ],
+                                            type: 'string',
+                                          },
+                                        },
+                                        type: 'object',
+                                      },
+                                    },
+                                    required: [
+                                      'name',
+                                    ],
+                                    type: 'object',
+                                  },
+                                  metadata: {
+                                    description: 'Metadata is the metadata for connection secret.',
+                                    properties: {
+                                      annotations: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      labels: {
+                                        additionalProperties: {
+                                          type: 'string',
+                                        },
+                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
+                                        type: 'object',
+                                      },
+                                      type: {
+                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
+                                        type: 'string',
+                                      },
+                                    },
+                                    type: 'object',
+                                  },
+                                  name: {
+                                    description: 'Name is the name of the connection secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                ],
+                                type: 'object',
+                              },
+                              writeConnectionSecretToRef: {
+                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
+                                properties: {
+                                  name: {
+                                    description: 'Name of the secret.',
+                                    type: 'string',
+                                  },
+                                  namespace: {
+                                    description: 'Namespace of the secret.',
+                                    type: 'string',
+                                  },
+                                },
+                                required: [
+                                  'name',
+                                  'namespace',
+                                ],
+                                type: 'object',
+                              },
+                            },
+                            required: [
+                              'forProvider',
+                            ],
+                            type: 'object',
+                            'x-kubernetes-validations': [
+                              {
+                                message: 'spec.forProvider.name is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
+                              },
+                              {
+                                message: 'spec.forProvider.role is a required parameter',
+                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.role) || (has(self.initProvider) && has(self.initProvider.role))",
+                              },
+                            ],
+                          },
+                        },
+                        type: 'object',
+                      },
+                    },
+                    type: 'object',
+                  },
+                },
+                served: true,
+              },
+            ],
+          },
+        },
+      },
+      serviceAccountPermission: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -37261,650 +37834,7 @@
           },
         },
       },
-    ],
-    serviceaccounts: [
-      {
-        composition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'Composition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            labels: {
-              'crossplane.io/xrd': 'xserviceaccounts.oss.grafana.crossplane.io.namespaced',
-            },
-            name: 'serviceaccount-namespaced',
-          },
-          spec: {
-            compositeTypeRef: {
-              apiVersion: 'oss.grafana.crossplane.io.namespaced/v1alpha1',
-              kind: 'XServiceAccount',
-            },
-            resources: [
-              {
-                base: {
-                  apiVersion: 'oss.grafana.crossplane.io/v1alpha1',
-                  kind: 'ServiceAccount',
-                },
-                name: 'serviceaccount',
-                patches: [
-                  {
-                    fromFieldPath: 'spec.parameters.deletionPolicy',
-                    toFieldPath: 'spec.deletionPolicy',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.isDisabled',
-                    toFieldPath: 'spec.forProvider.isDisabled',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.name',
-                    toFieldPath: 'spec.forProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.orgId',
-                    toFieldPath: 'spec.forProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.name',
-                    toFieldPath: 'spec.forProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.forProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.forProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.forProvider.role',
-                    toFieldPath: 'spec.forProvider.role',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.isDisabled',
-                    toFieldPath: 'spec.initProvider.isDisabled',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.name',
-                    toFieldPath: 'spec.initProvider.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.orgId',
-                    toFieldPath: 'spec.initProvider.orgId',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.name',
-                    toFieldPath: 'spec.initProvider.organizationRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationRef.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchControllerRef',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchControllerRef',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.matchLabels',
-                    toFieldPath: 'spec.initProvider.organizationSelector.matchLabels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolution',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.organizationSelector.policy.resolve',
-                    toFieldPath: 'spec.initProvider.organizationSelector.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.initProvider.role',
-                    toFieldPath: 'spec.initProvider.role',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.managementPolicies',
-                    toFieldPath: 'spec.managementPolicies',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.name',
-                    toFieldPath: 'spec.providerConfigRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolution',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.providerConfigRef.policy.resolve',
-                    toFieldPath: 'spec.providerConfigRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolution',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolution',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.configRef.policy.resolve',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.configRef.policy.resolve',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.annotations',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.annotations',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.labels',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.labels',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.metadata.type',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.metadata.type',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.publishConnectionDetailsTo.name',
-                    toFieldPath: 'spec.publishConnectionDetailsTo.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.name',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.name',
-                    type: 'FromCompositeFieldPath',
-                  },
-                  {
-                    fromFieldPath: 'spec.parameters.writeConnectionSecretToRef.namespace',
-                    toFieldPath: 'spec.writeConnectionSecretToRef.namespace',
-                    type: 'FromCompositeFieldPath',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        definition: {
-          apiVersion: 'apiextensions.crossplane.io/v1',
-          kind: 'CompositeResourceDefinition',
-          metadata: {
-            annotations: {
-              'tanka.dev/namespaced': 'false',
-            },
-            name: 'xserviceaccounts.oss.grafana.crossplane.io.namespaced',
-          },
-          spec: {
-            claimNames: {
-              kind: 'ServiceAccount',
-              plural: 'serviceaccounts',
-            },
-            defaultCompositionRef: {
-              name: 'serviceaccount-namespaced',
-            },
-            group: 'oss.grafana.crossplane.io.namespaced',
-            names: {
-              kind: 'XServiceAccount',
-              plural: 'xserviceaccounts',
-            },
-            versions: [
-              {
-                name: 'v1alpha1',
-                referenceable: true,
-                schema: {
-                  openAPIV3Schema: {
-                    properties: {
-                      apiVersion: {
-                        type: 'string',
-                      },
-                      kind: {
-                        type: 'string',
-                      },
-                      metadata: {
-                        type: 'object',
-                      },
-                      spec: {
-                        properties: {
-                          parameters: {
-                            description: 'ServiceAccountSpec defines the desired state of ServiceAccount',
-                            properties: {
-                              deletionPolicy: {
-                                default: 'Delete',
-                                description: 'DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either "Delete" or "Orphan" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223',
-                                enum: [
-                                  'Orphan',
-                                  'Delete',
-                                ],
-                                type: 'string',
-                              },
-                              forProvider: {
-                                properties: {
-                                  isDisabled: {
-                                    description: '(Boolean) The disabled status for the service account. Defaults to false.\nThe disabled status for the service account. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  name: {
-                                    description: '(String) The name of the service account.\nThe name of the service account.',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  role: {
-                                    description: '(String) The basic role of the service account in the organization.\nThe basic role of the service account in the organization.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              initProvider: {
-                                description: 'THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.',
-                                properties: {
-                                  isDisabled: {
-                                    description: '(Boolean) The disabled status for the service account. Defaults to false.\nThe disabled status for the service account. Defaults to `false`.',
-                                    type: 'boolean',
-                                  },
-                                  name: {
-                                    description: '(String) The name of the service account.\nThe name of the service account.',
-                                    type: 'string',
-                                  },
-                                  orgId: {
-                                    description: '(String) The Organization ID. If not set, the Org ID defined in the provider block will be used.\nThe Organization ID. If not set, the Org ID defined in the provider block will be used.',
-                                    type: 'string',
-                                  },
-                                  organizationRef: {
-                                    description: 'Reference to a Organization in oss to populate orgId.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  organizationSelector: {
-                                    description: 'Selector for a Organization in oss to populate orgId.',
-                                    properties: {
-                                      matchControllerRef: {
-                                        description: 'MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.',
-                                        type: 'boolean',
-                                      },
-                                      matchLabels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'MatchLabels ensures an object with matching labels is selected.',
-                                        type: 'object',
-                                      },
-                                      policy: {
-                                        description: 'Policies for selection.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  role: {
-                                    description: '(String) The basic role of the service account in the organization.\nThe basic role of the service account in the organization.',
-                                    type: 'string',
-                                  },
-                                },
-                                type: 'object',
-                              },
-                              managementPolicies: {
-                                default: [
-                                  '*',
-                                ],
-                                description: 'THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md',
-                                items: {
-                                  description: 'A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.',
-                                  enum: [
-                                    'Observe',
-                                    'Create',
-                                    'Update',
-                                    'Delete',
-                                    'LateInitialize',
-                                    '*',
-                                  ],
-                                  type: 'string',
-                                },
-                                type: 'array',
-                              },
-                              providerConfigRef: {
-                                default: {
-                                  name: 'default',
-                                },
-                                description: 'ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the referenced object.',
-                                    type: 'string',
-                                  },
-                                  policy: {
-                                    description: 'Policies for referencing.',
-                                    properties: {
-                                      resolution: {
-                                        default: 'Required',
-                                        description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                        enum: [
-                                          'Required',
-                                          'Optional',
-                                        ],
-                                        type: 'string',
-                                      },
-                                      resolve: {
-                                        description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                        enum: [
-                                          'Always',
-                                          'IfNotPresent',
-                                        ],
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              publishConnectionDetailsTo: {
-                                description: 'PublishConnectionDetailsTo specifies the connection secret config which\ncontains a name, metadata and a reference to secret store config to\nwhich any connection details for this managed resource should be written.\nConnection details frequently include the endpoint, username,\nand password required to connect to the managed resource.',
-                                properties: {
-                                  configRef: {
-                                    default: {
-                                      name: 'default',
-                                    },
-                                    description: 'SecretStoreConfigRef specifies which secret store config should be used\nfor this ConnectionSecret.',
-                                    properties: {
-                                      name: {
-                                        description: 'Name of the referenced object.',
-                                        type: 'string',
-                                      },
-                                      policy: {
-                                        description: 'Policies for referencing.',
-                                        properties: {
-                                          resolution: {
-                                            default: 'Required',
-                                            description: "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
-                                            enum: [
-                                              'Required',
-                                              'Optional',
-                                            ],
-                                            type: 'string',
-                                          },
-                                          resolve: {
-                                            description: "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
-                                            enum: [
-                                              'Always',
-                                              'IfNotPresent',
-                                            ],
-                                            type: 'string',
-                                          },
-                                        },
-                                        type: 'object',
-                                      },
-                                    },
-                                    required: [
-                                      'name',
-                                    ],
-                                    type: 'object',
-                                  },
-                                  metadata: {
-                                    description: 'Metadata is the metadata for connection secret.',
-                                    properties: {
-                                      annotations: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Annotations are the annotations to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.annotations".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      labels: {
-                                        additionalProperties: {
-                                          type: 'string',
-                                        },
-                                        description: 'Labels are the labels/tags to be added to connection secret.\n- For Kubernetes secrets, this will be used as "metadata.labels".\n- It is up to Secret Store implementation for others store types.',
-                                        type: 'object',
-                                      },
-                                      type: {
-                                        description: 'Type is the SecretType for the connection secret.\n- Only valid for Kubernetes Secret Stores.',
-                                        type: 'string',
-                                      },
-                                    },
-                                    type: 'object',
-                                  },
-                                  name: {
-                                    description: 'Name is the name of the connection secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                ],
-                                type: 'object',
-                              },
-                              writeConnectionSecretToRef: {
-                                description: 'WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.\nThis field is planned to be replaced in a future release in favor of\nPublishConnectionDetailsTo. Currently, both could be set independently\nand connection details would be published to both without affecting\neach other.',
-                                properties: {
-                                  name: {
-                                    description: 'Name of the secret.',
-                                    type: 'string',
-                                  },
-                                  namespace: {
-                                    description: 'Namespace of the secret.',
-                                    type: 'string',
-                                  },
-                                },
-                                required: [
-                                  'name',
-                                  'namespace',
-                                ],
-                                type: 'object',
-                              },
-                            },
-                            required: [
-                              'forProvider',
-                            ],
-                            type: 'object',
-                            'x-kubernetes-validations': [
-                              {
-                                message: 'spec.forProvider.name is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",
-                              },
-                              {
-                                message: 'spec.forProvider.role is a required parameter',
-                                rule: "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.role) || (has(self.initProvider) && has(self.initProvider.role))",
-                              },
-                            ],
-                          },
-                        },
-                        type: 'object',
-                      },
-                    },
-                    type: 'object',
-                  },
-                },
-                served: true,
-              },
-            ],
-          },
-        },
-      },
-    ],
-    serviceaccounttokens: [
-      {
+      serviceAccountToken: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -38521,9 +38451,7 @@
           },
         },
       },
-    ],
-    ssosettings: [
-      {
+      ssoSettings: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -39620,9 +39548,7 @@
           },
         },
       },
-    ],
-    teams: [
-      {
+      team: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -40597,9 +40523,7 @@
           },
         },
       },
-    ],
-    users: [
-      {
+      user: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -41095,11 +41019,11 @@
           },
         },
       },
-    ],
+    },
   },
   slo: {
-    slos: [
-      {
+    v1alpha1: {
+      slo: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -42186,11 +42110,11 @@
           },
         },
       },
-    ],
+    },
   },
   sm: {
-    checks: [
-      {
+    v1alpha1: {
+      check: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -44105,9 +44029,7 @@
           },
         },
       },
-    ],
-    installations: [
-      {
+      installation: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -44785,9 +44707,7 @@
           },
         },
       },
-    ],
-    probes: [
-      {
+      probe: {
         composition: {
           apiVersion: 'apiextensions.crossplane.io/v1',
           kind: 'Composition',
@@ -45274,6 +45194,6 @@
           },
         },
       },
-    ],
+    },
   },
 }
