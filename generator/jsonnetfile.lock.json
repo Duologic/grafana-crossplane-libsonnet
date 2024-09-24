@@ -14,6 +14,16 @@
     {
       "source": {
         "git": {
+          "remote": "https://github.com/Duologic/jsonnet-parser.git",
+          "subdir": ""
+        }
+      },
+      "version": "4f3ca583ccfa4f6833abe75428677a005bc6b486",
+      "sum": "0N0SeOSZeD1DaVp7Avj9WpTRVt3tdPrAjxZ0qWr/xrU="
+    },
+    {
+      "source": {
+        "git": {
           "remote": "https://github.com/crdsonnet/astsonnet.git",
           "subdir": ""
         }

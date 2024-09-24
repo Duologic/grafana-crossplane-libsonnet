@@ -2,10 +2,11 @@ LIBRARY_VERSION:=0.0.1
 PROVIDER_VERSION:=0.18.0
 JSONNET_BIN:=jrsonnet
 
-grafanaplane: grafanaplane/raw.libsonnet grafanaplane/compositions.libsonnet
+grafanaplane: grafanaplane/main.libsonnet grafanaplane/compositions.libsonnet
 
-grafanaplane/raw.libsonnet: generator/main.libsonnet generator/namespaced.libsonnet generator/crds.yaml generator/vendor
-	$(JSONNET_BIN) -S -J generator/vendor -A 'version=$(LIBRARY_VERSION)-$(PROVIDER_VERSION)' generator/main.libsonnet | jsonnetfmt - > grafanaplane/raw.libsonnet
+grafanaplane/main.libsonnet: generator/main.libsonnet generator/namespaced.libsonnet generator/crds.yaml generator/vendor
+	FILES=$$($(JSONNET_BIN) -S -c -m grafanaplane -J generator/vendor -A 'version=$(LIBRARY_VERSION)-$(PROVIDER_VERSION)' generator/main.libsonnet) && \
+	xargs -n1 jsonnetfmt -i <<< "$${FILES}"
 
 grafanaplane/compositions.libsonnet: generator/compositions.libsonnet generator/namespaced.libsonnet generator/crds.yaml generator/vendor
 	$(JSONNET_BIN) -J generator/vendor generator/compositions.libsonnet | jsonnetfmt - > grafanaplane/compositions.libsonnet

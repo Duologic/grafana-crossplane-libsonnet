@@ -1,8 +1,9 @@
-local d = import './vendor/github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
+local parser = import 'github.com/Duologic/jsonnet-parser/parser.libsonnet';
 local a = import 'github.com/crdsonnet/astsonnet/main.libsonnet';
 local autils = import 'github.com/crdsonnet/astsonnet/utils.libsonnet';
 local helpers = import 'github.com/crdsonnet/crdsonnet/crdsonnet/helpers.libsonnet';
 local crdsonnet = import 'github.com/crdsonnet/crdsonnet/crdsonnet/main.libsonnet';
+local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
 local processor = crdsonnet.processor.new('ast');
 
@@ -51,45 +52,53 @@ local mergeDocstring(group, version, name, obj, help='') =
     obj,
   ]);
 
-local packageDocString(version='main') =
-  a.object.new([
-    a.field.new(
-      a.string.new('#'),
-      a.literal.new(
-        std.manifestJsonEx(
-          d.package.new(
-            'grafanaplane',
-            'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
-            |||
-              Jsonnet library providing a namespaced set of compositions/XRDs for the Grafana Crossplane provider. The compositions, XRDs and the library for creating the XRD objects is generated.
+local packageDocStringField(version='main') =
+  a.field.new(
+    a.string.new('#'),
+    parser.new(
+      std.manifestJsonEx(
+        d.package.new(
+          'grafanaplane',
+          'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
+          |||
+            Jsonnet library providing a namespaced set of compositions/XRDs for the Grafana Crossplane provider. The compositions, XRDs and the library for creating the XRD objects is generated.
 
-              The compositions/XRDs can be imported like this:
+            The compositions/XRDs can be imported like this:
 
-              ```jsonnet
-              local compositions = import "github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet"
+            ```jsonnet
+            local compositions = import "github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet"
 
-              [
-                # Each composition has a `definition` and `composition` key
-                compositions.oss.v1alpha1.folder.composition,
-                compositions.oss.v1alpha1.folder.definition,
+            [
+              # Each composition has a `definition` and `composition` key
+              compositions.oss.v1alpha1.folder.composition,
+              compositions.oss.v1alpha1.folder.definition,
 
-                # When using Tanka, then providing the higher level objects is also possible
-                compositions.cloud.v1alpha1.stack, # a composition/XRD pair
-                compositions.oss,                  # whole group of composition/XRD pairs
-              ]
-              ```
+              # When using Tanka, then providing the higher level objects is also possible
+              compositions.cloud.v1alpha1.stack, # a composition/XRD pair
+              compositions.oss,                  # whole group of composition/XRD pairs
+            ]
+            ```
 
-              The library in `main.libsonnet` can be used to build objects for these XRDs.
+            The library in `main.libsonnet` can be used to build objects for these XRDs.
 
-            |||,
-            'main.libsonnet',
-            version
-          )
-          , '  ', ''
-        ),
+          |||,
+          'main.libsonnet',
+          version
+        )
+        , '  ', ''
       ),
-    ),
-  ]);
+    ).parse()
+    + {
+      members: std.map(
+        function(member)
+          if member.fieldname.string == 'help'
+          then member + { expr+: { textblock: true } }
+          else member,
+        super.members,
+      ),
+    }
+    ,
+  );
 
 local ast =
   std.foldl(
@@ -107,6 +116,57 @@ local ast =
     a.object.withMembers([]),
   );
 
-function(version='main')
-  autils.deepMergeObjects([ast, packageDocString(version)]).toString()
+local splitIntoFiles(objast, sub='', depth=1, maxDepth=5) =
+  local subdir = if sub != '' then sub + '/' else '';
+  std.foldl(
+    function(acc, member)
+      if member.type == 'field'
+         && member.expr.type == 'object'
+         && !std.startsWith(member.fieldname.string, '#')
+      then
+        acc
+        + {
+          [subdir + 'main.libsonnet']+:
+            a.object.withMembersMixin([
+              member
+              + a.field.withExpr(
+                if depth != maxDepth
+                then a.import_statement.new('./' + member.fieldname.string + '/main.libsonnet')
+                else a.import_statement.new('./' + member.fieldname.string + '.libsonnet')
+              ),
+            ]),
+        }
+        + (if depth != maxDepth
+           then splitIntoFiles(member.expr, subdir + member.fieldname.string, depth + 1)
+           else {
+             [subdir + member.fieldname.string + '.libsonnet']: member.expr,
+           })
+      else
+        acc
+        + {
+          [subdir + 'main.libsonnet']+:
+            a.object.withMembersMixin([member]),
+        }
+    ,
+    objast.members,
+    {
+      [subdir + 'main.libsonnet']:
+        a.object.new([]),
+    }
+  );
 
+function(version='main')
+  local files = splitIntoFiles(ast);
+  {
+    [file.key]: file.value.toString()
+    for file in std.objectKeysValues(files)
+  }
+  + {
+    'main.libsonnet':
+      (
+        files['main.libsonnet']
+        + a.object.withMembersMixin(
+          [packageDocStringField(version)]
+        )
+      ).toString(),
+  }
