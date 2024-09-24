@@ -17,7 +17,7 @@
           The compositions/XRDs can be imported like this:
 
           ```jsonnet
-          local compositions = import \"github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet\"
+          local compositions = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet';
 
           [
             # Each composition has a `definition` and `composition` key
@@ -42,7 +42,7 @@
           ## Usage
 
           ```jsonnet
-          local grafanaplane = import \"github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/main.libsonnet\"
+          local grafanaplane = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/main.libsonnet';
           ```
 
         |||,
@@ -50,7 +50,7 @@
       installTemplate: '\n## Install\n\n```\njb install %(url)s@%(version)s\n```\n',
       name: 'grafanaplane',
       url: 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
-      usageTemplate: '\n## Usage\n\n```jsonnet\nlocal %(name)s = import "%(import)s"\n```\n',
+      usageTemplate: "\n## Usage\n\n```jsonnet\nlocal %(name)s = import '%(import)s';\n```\n",
       version: '0.0.1-0.18.0',
     },
 }

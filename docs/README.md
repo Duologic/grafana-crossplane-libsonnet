@@ -5,7 +5,7 @@ Jsonnet library providing a namespaced set of compositions/XRDs for the Grafana 
 The compositions/XRDs can be imported like this:
 
 ```jsonnet
-local compositions = import "github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet"
+local compositions = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet';
 
 [
   # Each composition has a `definition` and `composition` key
@@ -30,8 +30,9 @@ jb install github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane@0.0.1-0
 ## Usage
 
 ```jsonnet
-local grafanaplane = import "github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/main.libsonnet"
+local grafanaplane = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/main.libsonnet';
 ```
+
 
 
 ## Subpackages

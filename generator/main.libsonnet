@@ -66,7 +66,7 @@ local packageDocStringField(version='main') =
             The compositions/XRDs can be imported like this:
 
             ```jsonnet
-            local compositions = import "github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet"
+            local compositions = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet';
 
             [
               # Each composition has a `definition` and `composition` key
@@ -84,6 +84,9 @@ local packageDocStringField(version='main') =
           |||,
           'main.libsonnet',
           version
+        )
+        + d.package.withUsageTemplate(
+          @"local %(name)s = import '%(import)s';"
         )
         , '  ', ''
       ),
