@@ -8,8 +8,18 @@
           "subdir": ""
         }
       },
-      "version": "c26e17ea5dbddf389e5e65217b679044eb9d627d",
-      "sum": "esRceW/DxhdnRea+DZTNJg6SGnl/Hb+vX+hi+0o8jOI="
+      "version": "f9fd49989b40a2706af64cb1896856fa20aaa4da",
+      "sum": "IM+5xV6Mat3VD2AUUGt5fYyCComJyVspXH+Tdz+I3Nc="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/Duologic/jsonnet-parser.git",
+          "subdir": ""
+        }
+      },
+      "version": "4f3ca583ccfa4f6833abe75428677a005bc6b486",
+      "sum": "0N0SeOSZeD1DaVp7Avj9WpTRVt3tdPrAjxZ0qWr/xrU="
     },
     {
       "source": {
@@ -18,8 +28,8 @@
           "subdir": ""
         }
       },
-      "version": "a771663cb9594cd10b30815933fe55554e6a3755",
-      "sum": "k/SJ+F+jjdg+dBMKczPEjcYCEuQ6v0BROdXKdXOCi9o="
+      "version": "f810e234468906b2d05b091ae1b5f8c6047090a4",
+      "sum": "Q1BAaS0EIkBXdOOGXfQrnJlo1wvlVd2JTRIRUhfxTj0="
     },
     {
       "source": {
