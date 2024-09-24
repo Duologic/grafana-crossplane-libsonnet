@@ -1,4 +1,4 @@
-local cngen = import 'crossplane-namespaced-libsonnet/main.jsonnet';
+local cngen = import 'github.com/Duologic/crossplane-namespaced-libsonnet/main.jsonnet';
 
 local crds =
   std.filter(
