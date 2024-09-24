@@ -24,7 +24,7 @@ The library in `main.libsonnet` can be used to build objects for these XRDs.
 ## Install
 
 ```
-jb install github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane@0.0.1-0.18.0
+jb install github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane@0.0.3-0.18.0
 ```
 
 ## Usage

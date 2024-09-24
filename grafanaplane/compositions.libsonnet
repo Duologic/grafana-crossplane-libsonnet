@@ -28,6 +28,11 @@
                 name: 'contactpoint',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -462,6 +467,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -4065,6 +4074,11 @@
                 name: 'messagetemplate',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -4299,6 +4313,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -4704,6 +4722,11 @@
                 name: 'mutetiming',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -4938,6 +4961,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -5447,6 +5474,11 @@
                 name: 'notificationpolicy',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -5791,6 +5823,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -8134,6 +8170,11 @@
                 name: 'rulegroup',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -8458,6 +8499,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -9443,6 +9488,11 @@
                 name: 'accesspolicy',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -9617,6 +9667,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -10098,6 +10152,11 @@
                 name: 'accesspolicytoken',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -10342,6 +10401,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -10755,6 +10818,11 @@
                 name: 'plugininstallation',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -10979,6 +11047,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -11376,6 +11448,11 @@
                 name: 'stack',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -11580,6 +11657,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -11873,6 +11954,11 @@
                 name: 'stackserviceaccount',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -12107,6 +12193,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -12512,6 +12602,11 @@
                 name: 'stackserviceaccounttoken',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -12816,6 +12911,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -13373,6 +13472,11 @@
                 name: 'datasourcepermission',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -13597,6 +13701,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -14336,6 +14444,11 @@
                 name: 'report',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -14650,6 +14763,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -15271,6 +15388,11 @@
                 name: 'role',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -15575,6 +15697,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -16058,6 +16184,11 @@
                 name: 'roleassignment',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -16522,6 +16653,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -17581,6 +17716,11 @@
                 name: 'teamexternalgroup',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -17795,6 +17935,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -18192,6 +18336,11 @@
                 name: 'holiday',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -18366,6 +18515,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -18652,6 +18805,11 @@
                 },
                 name: 'job',
                 patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
                   {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
@@ -18957,6 +19115,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -19456,6 +19618,11 @@
                 name: 'outlierdetector',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -19730,6 +19897,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -20243,6 +20414,11 @@
                 name: 'escalation',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -20707,6 +20883,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -21504,6 +21684,11 @@
                 name: 'escalationchain',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -21648,6 +21833,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -21881,6 +22070,11 @@
                 name: 'integration',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -22055,6 +22249,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -22888,6 +23086,11 @@
                 name: 'oncallshift',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -23172,6 +23375,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -23573,6 +23780,11 @@
                 name: 'outgoingwebhook',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -23877,6 +24089,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -24292,6 +24508,11 @@
                 name: 'route',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -24636,6 +24857,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -25303,6 +25528,11 @@
                 name: 'schedule',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -25567,6 +25797,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -26054,6 +26288,11 @@
                 name: 'usernotificationrule',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -26228,6 +26467,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -26492,6 +26735,11 @@
                 },
                 name: 'annotation',
                 patches: [
+                  {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
                   {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
@@ -26827,6 +27075,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -27412,6 +27664,11 @@
                 name: 'dashboard',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -27726,6 +27983,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -28287,6 +28548,11 @@
                 name: 'dashboardpermission',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -28581,6 +28847,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -29466,6 +29736,11 @@
                 name: 'dashboardpublic',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -29810,6 +30085,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -30389,6 +30668,11 @@
                 name: 'datasource',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -30748,6 +31032,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -31287,6 +31575,11 @@
                 name: 'folder',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -31601,6 +31894,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -32162,6 +32459,11 @@
                 name: 'folderpermission',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -32456,6 +32758,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -33341,6 +33647,11 @@
                 name: 'librarypanel',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -33655,6 +33966,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -34220,6 +34535,11 @@
                 name: 'organization',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -34414,6 +34734,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -34719,6 +35043,11 @@
                 name: 'organizationpreferences',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -34963,6 +35292,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -35366,6 +35699,11 @@
                 name: 'playlist',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -35600,6 +35938,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -36051,6 +36393,11 @@
                 name: 'serviceaccount',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -36285,6 +36632,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -36690,6 +37041,11 @@
                 name: 'serviceaccountpermission',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -36984,6 +37340,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -37861,6 +38221,11 @@
                 name: 'serviceaccounttoken',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -38085,6 +38450,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -38478,6 +38847,11 @@
                 name: 'ssosettings',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -38632,6 +39006,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -39575,6 +39953,11 @@
                 name: 'team',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -39889,6 +40272,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -40550,6 +40937,11 @@
                 name: 'user',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -40744,6 +41136,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -41050,6 +41446,11 @@
                 name: 'slo',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -41254,6 +41655,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -42141,6 +42546,11 @@
                 name: 'check',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -42365,6 +42775,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -44056,6 +44470,11 @@
                 name: 'installation',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -44300,6 +44719,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {
@@ -44734,6 +45157,11 @@
                 name: 'probe',
                 patches: [
                   {
+                    fromFieldPath: 'spec.parameters.externalName',
+                    toFieldPath: 'metadata.annotations["crossplane.io/external-name"]',
+                    type: 'FromCompositeFieldPath',
+                  },
+                  {
                     fromFieldPath: 'spec.parameters.deletionPolicy',
                     toFieldPath: 'spec.deletionPolicy',
                     type: 'FromCompositeFieldPath',
@@ -44928,6 +45356,10 @@
                                   'Orphan',
                                   'Delete',
                                 ],
+                                type: 'string',
+                              },
+                              externalName: {
+                                description: 'The name of the managed resource inside the Provider.\nBy default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.\n\nDocs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources\n',
                                 type: 'string',
                               },
                               forProvider: {

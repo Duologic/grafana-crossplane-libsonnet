@@ -59,6 +59,7 @@
     * [`fn withMatchLabelsMixin(value)`](#fn-speccompositionselectorwithmatchlabelsmixin)
   * [`obj parameters`](#obj-specparameters)
     * [`fn withDeletionPolicy(value="Delete")`](#fn-specparameterswithdeletionpolicy)
+    * [`fn withExternalName(value)`](#fn-specparameterswithexternalname)
     * [`fn withForProvider(value)`](#fn-specparameterswithforprovider)
     * [`fn withForProviderMixin(value)`](#fn-specparameterswithforprovidermixin)
     * [`fn withInitProvider(value)`](#fn-specparameterswithinitprovider)
@@ -693,6 +694,21 @@ This field is planned to be deprecated in favor of the ManagementPolicies
 field in a future release. Currently, both could be set independently and
 non-default values would be honored if the feature flag is enabled.
 See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223
+##### fn spec.parameters.withExternalName
+
+```jsonnet
+spec.parameters.withExternalName(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+The name of the managed resource inside the Provider.
+By default Providers give external resources the same name as the Kubernetes object. A provider uses the external name to lookup a managed resource in an external system. The provider looks up the resource in the external system to determine if it exists, and if it matches the managed resource’s desired state. If the provider can’t find the resource, it creates it.
+
+Docs: https://docs.crossplane.io/latest/concepts/managed-resources/#naming-external-resources
+
 ##### fn spec.parameters.withForProvider
 
 ```jsonnet

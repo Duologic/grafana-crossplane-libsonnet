@@ -36,7 +36,7 @@
           ## Install
 
           ```
-          jb install github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane@0.0.1-0.18.0
+          jb install github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane@0.0.3-0.18.0
           ```
 
           ## Usage
@@ -51,6 +51,6 @@
       name: 'grafanaplane',
       url: 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
       usageTemplate: "\n## Usage\n\n```jsonnet\nlocal %(name)s = import '%(import)s';\n```\n",
-      version: '0.0.1-0.18.0',
+      version: '0.0.3-0.18.0',
     },
 }
