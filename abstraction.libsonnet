@@ -164,4 +164,36 @@ local grafanaplane = import './grafanaplane/main.libsonnet';
       + forProvider.withFolder(folderResource.spec.parameters.forProvider.uid)
       + forProvider.withOverwrite(),
   },
+
+  datasource: {
+    local forProvider = grafanaplane.oss.v1alpha1.dataSource.spec.parameters.forProvider,
+
+    new(name, type):
+      local uid = xtd.ascii.stringToRFC1123(name);
+      grafanaplane.oss.v1alpha1.dataSource.new(uid)
+      + forProvider.withName(name)
+      + forProvider.withType(type)
+      + forProvider.withUid(uid)
+      + grafanaplane.oss.v1alpha1.dataSource.spec.parameters.withExternalName(uid),
+
+    '#withExternalName': d.func.new(
+      '`withExternalName` can be used to import an existing datasource.',
+      [d.argument.new('externalName', d.T.string)]
+    ),
+    withExternalName(externalName):
+      grafanaplane.oss.v1alpha1.dataSource.spec.parameters.withExternalName(externalName),
+
+    withJsonData(configObject):
+      forProvider.withJsonDataEncoded(std.manifestJson(configObject)),
+
+    withSecureJsonDataSecretRef(name, namespace, key):
+      forProvider.secureJsonDataEncodedSecretRef.withName(key)
+      + forProvider.secureJsonDataEncodedSecretRef.withNamespace(namespace)
+      + forProvider.secureJsonDataEncodedSecretRef.withKey(key),
+
+    // This'll likely expect `withSecureJsonDataSecretRef()` with a key `basicAuthPassword`
+    withBasicAuth(username):
+      forProvider.withBasicAuthEnabled()
+      + forProvider.withBasicAuthUsername(username),
+  },
 }
