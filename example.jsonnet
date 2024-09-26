@@ -1,39 +1,91 @@
-local grafanaplane = import './grafanaplane/main.libsonnet',
-      folder = grafanaplane.oss.v1alpha1.folder.spec.parameters.forProvider,
-      folderPermission = grafanaplane.oss.v1alpha1.folderPermission.spec.parameters.forProvider;
+local abstract = import './abstraction.libsonnet';
 
-local teams = [
-  {
+local teams = {
+  infra: {
     name: 'infra',
-    folders: ['infra', 'kubernetes'],
+    members: [
+      'john@grafana.net',
+      'mary@grafana.net',
+    ],
   },
-  {
+  networking: {
     name: 'networking',
-    folders: ['ipv6', 'calico'],
+    members: [
+      'mia.qus@grafana.net',
+      'lilly@grafana.net',
+    ],
+  },
+};
+
+local mixins = [
+  {
+    dashboards: {
+      'my-dashboard.json': {
+        title: 'My Dashboard',
+        uid: 'my-dashboard-uid',
+      },
+    },
+    dashboardFolder: 'Kubernetes',
   },
 ];
 
-[
+local topLevelFolders = [
   {
-    team:
-      grafanaplane.oss.v1alpha1.team.new(team.name)
-      + grafanaplane.oss.v1alpha1.team.spec.parameters.forProvider.withName(team.name),
-    folders: [
-      grafanaplane.oss.v1alpha1.folder.new(name)
-      + folder.withTitle(name)
-      + folder.withUid(name)
-      + folder.withPreventDestroyIfNotEmpty(true)
-      for name in team.folders
+    name: 'Infra',
+    admins: [teams.infra, teams.networking],
+    mixins: mixins,
+  },
+];
+
+/*
+ *  Resulting structure in Grafana:
+ *
+ *  - Applications (read-only)     (folder)
+ *    - Infra                      (folder)
+ *      - Kubernetes               (folder)
+ *        - My Dashboard           (dashboard)
+ */
+{
+  local root = self,
+
+  teams: {
+    [team.key]:
+      abstract.team.new(team.key)
+      + abstract.team.withMembers(team.value.members)
+    for team in std.objectKeysValues(teams)
+  },
+
+  mixinsFolder:
+    abstract.folder.new('applications')
+    + abstract.folder.withTitle('Applications (read-only)'),
+
+  env:
+    [
+      {
+        local this = self,
+        parent: {
+          folder:
+            abstract.folder.new(f.name)
+            + abstract.folder.withParentFolder(root.mixinsFolder),
+          permission: [
+            abstract.folderPermission.forFolder(self.folder)
+            + abstract.folderPermission.withTeamPermission(root.teams[t.name])
+            for t in f.admins
+          ],
+        },
+        mixins: [
+          {
+            folder:
+              abstract.folder.new(mixin.dashboardFolder)
+              + abstract.folder.withParentFolder(this.parent.folder),
+            dashboards: [
+              abstract.dashboard.new(dashboard.key, dashboard.value, self.folder)
+              for dashboard in std.objectKeysValues(mixin.dashboards)
+            ],
+          }
+          for mixin in f.mixins
+        ],
+      }
+      for f in topLevelFolders
     ],
-    perm: [
-      grafanaplane.oss.v1alpha1.folderPermission.new(folder.metadata.name)
-      + folderPermission.withFolderUid(folder.spec.parameters.forProvider.uid)
-      + folderPermission.withPermissions([
-        folderPermission.permissions.teamRef.withName(self.team.spec.parameters.forProvider.name)
-        + folderPermission.permissions.withPermission('Admin'),
-      ])
-      for folder in self.folders
-    ],
-  }
-  for team in teams
-]
+}
