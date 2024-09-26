@@ -196,4 +196,54 @@ local grafanaplane = import './grafanaplane/main.libsonnet';
       forProvider.withBasicAuthEnabled()
       + forProvider.withBasicAuthUsername(username),
   },
+
+  smcheck: {
+    local forProvider = grafanaplane.sm.v1alpha1.check.spec.parameters.forProvider,
+
+    // TODO: Probe IDs hardcoded for now, look into ways to get them from API in Crossplane. Observe-only resource for the probes datasource?
+    local fullProbeList = [1, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 756, 757, 853, 854, 855, 856, 867],
+    local shortProbeList = [7, 856, 867],  // Paris, North Virginia, Seoul (all AWS)
+
+    new(name, job, url):
+      local slug = xtd.ascii.stringToRFC1123(name);
+      grafanaplane.sm.v1alpha1.check.new(slug)
+      + forProvider.withJob(job)
+      + forProvider.withTarget(url)
+      + forProvider.withProbes(shortProbeList)
+      + forProvider.withEnabled(true)
+      + forProvider.withAlertSensitivity('high')
+      + forProvider.withBasicMetricsOnly(true)
+      + forProvider.withFrequency(60000)  // ms
+      + forProvider.withTimeout(10000),  // ms
+
+    withProbes(probes):
+      forProvider.withProbes(probes),
+
+    withFullProbeList(probes=fullProbeList):
+      self.withProbes(probes),
+
+    withLabels(labels):
+      forProvider.withLabels(labels),
+
+    withHttpSettings(settings):
+      forProvider.withSettings(
+        forProvider.settings.withHttp(settings)
+      ),
+
+    withHttpStatusCheck(validStatusCodes=[200]):
+      self.withHttpSettings(self.settings.http.new(validStatusCodes)),
+
+    settings: {
+      http:
+        forProvider.settings.http
+        + {
+          new(validStatusCodes=[200]):
+            self.withValidStatusCodes(validStatusCodes)
+            + self.withFailIfSsl(false)
+            + self.withFailIfNotSsl(true)
+            + self.withNoFollowRedirects(true)
+            + self.withMethod('GET'),
+        },
+    },
+  },
 }
