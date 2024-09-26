@@ -143,6 +143,20 @@ local grafanaplane = import './grafanaplane/main.libsonnet';
   dashboard: {
     local forProvider = grafanaplane.oss.v1alpha1.dashboard.spec.parameters.forProvider,
 
+    '#new': d.func.new(
+      |||
+        `new` creates a dashboard.
+
+        - `name` is the Kubernetes object name
+        - `dashboardObject` is the actual JSON object of the dashboard
+        - `folderResource` can be created by `folder.new()`
+      |||,
+      [
+        d.argument.new('name', d.T.string),
+        d.argument.new('dashboardObject', d.T.object),
+        d.argument.new('folderResource', d.T.object),
+      ]
+    ),
     new(name, dashboardObject, folderResource):
       local slug = xtd.ascii.stringToRFC1123(name);
       grafanaplane.oss.v1alpha1.dashboard.new(slug)
