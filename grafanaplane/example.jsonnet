@@ -1,4 +1,4 @@
-local abstract = import './abstraction.libsonnet';
+local grafanaplane = import './main.libsonnet';
 
 local teams = {
   infra: {
@@ -50,14 +50,14 @@ local topLevelFolders = [
 
   teams: {
     [team.key]:
-      abstract.team.new(team.key)
-      + abstract.team.withMembers(team.value.members)
+      grafanaplane.oss.team.new(team.key)
+      + grafanaplane.oss.team.withMembers(team.value.members)
     for team in std.objectKeysValues(teams)
   },
 
   mixinsFolder:
-    abstract.folder.new('applications')
-    + abstract.folder.withTitle('Applications (read-only)'),
+    grafanaplane.oss.folder.new('applications')
+    + grafanaplane.oss.folder.withTitle('Applications (read-only)'),
 
   env:
     [
@@ -65,21 +65,21 @@ local topLevelFolders = [
         local this = self,
         parent: {
           folder:
-            abstract.folder.new(f.name)
-            + abstract.folder.withParentFolder(root.mixinsFolder),
+            grafanaplane.oss.folder.new(f.name)
+            + grafanaplane.oss.folder.withParentFolder(root.mixinsFolder),
           permission: [
-            abstract.folderPermission.forFolder(self.folder)
-            + abstract.folderPermission.withTeamPermission(root.teams[t.name])
+            grafanaplane.oss.folderPermission.forFolder(self.folder)
+            + grafanaplane.oss.folderPermission.withTeamPermission(root.teams[t.name])
             for t in f.admins
           ],
         },
         mixins: [
           {
             folder:
-              abstract.folder.new(mixin.dashboardFolder)
-              + abstract.folder.withParentFolder(this.parent.folder),
+              grafanaplane.oss.folder.new(mixin.dashboardFolder)
+              + grafanaplane.oss.folder.withParentFolder(this.parent.folder),
             dashboards: [
-              abstract.dashboard.new(dashboard.key, dashboard.value, self.folder)
+              grafanaplane.oss.dashboard.new(dashboard.key, dashboard.value, self.folder)
               for dashboard in std.objectKeysValues(mixin.dashboards)
             ],
           }

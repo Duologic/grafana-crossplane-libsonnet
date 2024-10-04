@@ -4,13 +4,13 @@ JSONNET_BIN:=jrsonnet
 
 VENDOR_DEPTHS:=$(shell find generator/vendor -type f)
 
-grafanaplane: grafanaplane/main.libsonnet grafanaplane/compositions.libsonnet
+grafanaplane: grafanaplane/raw.libsonnet grafanaplane/compositions.libsonnet
 
 generator/crds.yaml:
 	cd generator && \
 	curl -sLO https://github.com/grafana/crossplane-provider-grafana/releases/download/v$(PROVIDER_VERSION)/crds.yaml
 
-grafanaplane/main.libsonnet: generator/main.libsonnet generator/namespaced.libsonnet generator/crds.yaml $(VENDOR_DEPTHS)
+grafanaplane/raw.libsonnet: generator/main.libsonnet generator/namespaced.libsonnet generator/crds.yaml $(VENDOR_DEPTHS)
 	FILES=$$($(JSONNET_BIN) -S -c -m grafanaplane -J generator/vendor -A 'version=$(LIBRARY_VERSION)-$(PROVIDER_VERSION)' generator/main.libsonnet) && \
 	xargs -n1 jsonnetfmt -i <<< "$${FILES}"
 
