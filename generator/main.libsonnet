@@ -52,57 +52,6 @@ local mergeDocstring(group, version, name, obj, help='') =
     obj,
   ]);
 
-local packageDocStringField(version='main') =
-  a.field.new(
-    a.string.new('#'),
-    parser.new(
-      std.manifestJsonEx(
-        d.package.new(
-          'grafanaplane',
-          'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane',
-          |||
-            Jsonnet library providing a namespaced set of compositions/XRDs for the Grafana Crossplane provider. The compositions, XRDs and the library for creating the XRD objects is generated.
-
-            The compositions/XRDs can be imported like this:
-
-            ```jsonnet
-            local compositions = import 'github.com/Duologic/grafana-crossplane-libsonnet/grafanaplane/compositions.libsonnet';
-
-            [
-              # Each composition has a `definition` and `composition` key
-              compositions.oss.v1alpha1.folder.composition,
-              compositions.oss.v1alpha1.folder.definition,
-
-              # When using Tanka, then providing the higher level objects is also possible
-              compositions.cloud.v1alpha1.stack, # a composition/XRD pair
-              compositions.oss,                  # whole group of composition/XRD pairs
-            ]
-            ```
-
-            The library in `main.libsonnet` can be used to build objects for these XRDs.
-
-          |||,
-          'main.libsonnet',
-          version
-        )
-        + d.package.withUsageTemplate(
-          @"local %(name)s = import '%(import)s';"
-        )
-        , '  ', ''
-      ),
-    ).parse()
-    + {
-      members: std.map(
-        function(member)
-          if member.fieldname.string == 'help'
-          then member + { expr+: { textblock: true } }
-          else member,
-        super.members,
-      ),
-    }
-    ,
-  );
-
 local ast =
   std.foldl(
     function(acc, def)
@@ -163,13 +112,9 @@ function(version='main')
   {
     [file.key]: file.value.toString()
     for file in std.objectKeysValues(files)
+    if file.key != 'main.libsonnet'
   }
   + {
-    'main.libsonnet':
-      (
-        files['main.libsonnet']
-        + a.object.withMembersMixin(
-          [packageDocStringField(version)]
-        )
-      ).toString(),
+    'raw.libsonnet': (files['main.libsonnet']).toString(),
+    'version.libsonnet': std.manifestJson(version),
   }
