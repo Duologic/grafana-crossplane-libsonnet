@@ -7,4 +7,5 @@
   oss+: import './oss/main.libsonnet',
   slo+: import './slo/main.libsonnet',
   sm+: import './sm/main.libsonnet',
+  nogroup+: import './nogroup/main.libsonnet',
 }
