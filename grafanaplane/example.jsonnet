@@ -48,16 +48,20 @@ local topLevelFolders = [
 {
   local root = self,
 
+  stack: grafanaplane.cloud.stack.new('grafanaplane', 'my-namespace', 'grafana-token'),
+
+  local oss = grafanaplane.oss,
+
   teams: {
     [team.key]:
-      grafanaplane.oss.team.new(team.key)
-      + grafanaplane.oss.team.withMembers(team.value.members)
+      oss.team.new(team.key)
+      + oss.team.withMembers(team.value.members)
     for team in std.objectKeysValues(teams)
   },
 
   mixinsFolder:
-    grafanaplane.oss.folder.new('applications')
-    + grafanaplane.oss.folder.withTitle('Applications (read-only)'),
+    oss.folder.new('applications')
+    + oss.folder.withTitle('Applications (read-only)'),
 
   env:
     [
@@ -65,21 +69,21 @@ local topLevelFolders = [
         local this = self,
         parent: {
           folder:
-            grafanaplane.oss.folder.new(f.name)
-            + grafanaplane.oss.folder.withParentFolder(root.mixinsFolder),
+            oss.folder.new(f.name)
+            + oss.folder.withParentFolder(root.mixinsFolder),
           permission: [
-            grafanaplane.oss.folderPermission.forFolder(self.folder)
-            + grafanaplane.oss.folderPermission.withTeamPermission(root.teams[t.name])
+            oss.folderPermission.forFolder(self.folder)
+            + oss.folderPermission.withTeamPermission(root.teams[t.name])
             for t in f.admins
           ],
         },
         mixins: [
           {
             folder:
-              grafanaplane.oss.folder.new(mixin.dashboardFolder)
-              + grafanaplane.oss.folder.withParentFolder(this.parent.folder),
+              oss.folder.new(mixin.dashboardFolder)
+              + oss.folder.withParentFolder(this.parent.folder),
             dashboards: [
-              grafanaplane.oss.dashboard.new(dashboard.key, dashboard.value, self.folder)
+              oss.dashboard.new(dashboard.key, dashboard.value, self.folder)
               for dashboard in std.objectKeysValues(mixin.dashboards)
             ],
           }
