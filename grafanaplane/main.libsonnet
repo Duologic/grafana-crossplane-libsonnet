@@ -5,6 +5,8 @@ local compositions = import './compositions.libsonnet';
 local raw = import './raw.libsonnet';
 
 {
+  local root = self,
+
   '#':
     d.package.new(
       'grafanaplane',
@@ -60,6 +62,59 @@ local raw = import './raw.libsonnet';
           ])
         ),
     },
+
+  global: {
+    providerConfig: {
+      new(name, secretName, secretNamespace, secretKey):
+        raw.nogroup.v1beta1.providerConfig.new(name)
+        + raw.nogroup.v1beta1.providerConfig.metadata.withAnnotations({
+          'tanka.dev/namespaced': 'false',
+        })
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.withSource('Secret')
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withNamespace(secretNamespace)
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withName(secretName)
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withKey(secretKey),
+    },
+  },
+
+  cloud: {
+    local this = self,
+    stack: {
+      new(name, secretName, secretNamespace): {
+        stack:
+          raw.cloud.v1alpha1.stack.new(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.withExternalName(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.forProvider.withName(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.forProvider.withSlug(name),
+
+        serviceAccount: this.stackServiceAccount.fromStackResource(self.stack),
+        token: this.stackServiceAccountToken.fromStackServiceAccountResource(self.serviceAccount, secretName, secretNamespace),
+        providerConfig: root.global.providerConfig.new(name, secretName, secretNamespace, 'instanceCredentials'),
+      },
+    },
+    stackServiceAccount: {
+      fromStackResource(stackResource):
+        raw.cloud.v1alpha1.stackServiceAccount.new(stackResource.metadata.name + '-admin')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withName('crossplaneManagementKey')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withRole('Admin')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.cloudStackRef.withName(
+          stackResource.spec.parameters.forProvider.name
+        ),
+    },
+    stackServiceAccountToken: {
+      fromStackServiceAccountResource(stackServiceAccountResource, secretName, secretNamespace):
+        raw.cloud.v1alpha1.stackServiceAccountToken.new(stackServiceAccountResource.metadata.name)
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.withName('crossplaneManagementToken')
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.serviceAccountRef.withName(
+          stackServiceAccountResource.spec.parameters.forProvider.name
+        )
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.cloudStackRef.withName(
+          stackServiceAccountResource.spec.parameters.forProvider.cloudStackRef.name
+        )
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withName(secretName)
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withNamespace(secretNamespace),
+    },
+  },
 
   oss: {
     '#': d.package.newSub('oss', ''),
