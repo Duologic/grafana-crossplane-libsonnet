@@ -8,6 +8,7 @@ Generated libraries for all the compositions in case the manually curated functi
 * [cloud](cloud/index.md)
 * [enterprise](enterprise/index.md)
 * [ml](ml/index.md)
+* [nogroup](nogroup/index.md)
 * [oncall](oncall/index.md)
 * [oss](oss/index.md)
 * [slo](slo/index.md)

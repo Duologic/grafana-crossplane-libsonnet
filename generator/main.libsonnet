@@ -9,6 +9,13 @@ local processor = crdsonnet.processor.new('ast');
 
 local definitions = import './namespaced.libsonnet';
 
+local globalDefinitions =
+  std.filter(
+    function(crd) crd.spec.group == 'grafana.crossplane.io',
+    std.parseYaml(importstr './crds.yaml'),
+  );
+
+
 local subPackageDocstring(name, help='') =
   a.object.new([
     a.field.new(
@@ -52,7 +59,7 @@ local mergeDocstring(group, version, name, obj, help='') =
     obj,
   ]);
 
-local ast =
+local compositions =
   std.foldl(
     function(acc, def)
       local render = crdsonnet.xrd.render(def.definition, 'grafana.crossplane.io', processor);
@@ -67,6 +74,24 @@ local ast =
     definitions,
     a.object.withMembers([]),
   );
+
+local global =
+  std.foldl(
+    function(acc, definition)
+      local render = crdsonnet.crd.render(definition, 'grafana.crossplane.io', processor);
+
+      local group = helpers.getGroupKey(definition.spec.group, 'grafana.crossplane.io');
+      local version = definition.spec.versions[0].name;
+      local kind = helpers.camelCaseKind(crdsonnet.crd.getKind(definition));
+
+      local renderWithDocs = mergeDocstring(group, version, kind, render);
+
+      autils.deepMergeObjects([acc, renderWithDocs]),
+    globalDefinitions,
+    a.object.withMembers([])
+  );
+
+local ast = autils.deepMergeObjects([compositions, global]);
 
 local splitIntoFiles(objast, sub='', depth=1, maxDepth=5) =
   local subdir = if sub != '' then sub + '/' else '';
@@ -88,7 +113,7 @@ local splitIntoFiles(objast, sub='', depth=1, maxDepth=5) =
               ),
             ]),
         }
-        + (if depth != maxDepth
+        + (if depth != maxDepth && member.fieldname.string != 'global'
            then splitIntoFiles(member.expr, subdir + member.fieldname.string, depth + 1)
            else {
              [subdir + member.fieldname.string + '.libsonnet']: member.expr,
