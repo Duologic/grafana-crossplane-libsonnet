@@ -5,6 +5,8 @@ local compositions = import './compositions.libsonnet';
 local raw = import './raw.libsonnet';
 
 {
+  local root = self,
+
   '#':
     d.package.new(
       'grafanaplane',
@@ -60,6 +62,68 @@ local raw = import './raw.libsonnet';
           ])
         ),
     },
+
+  global: {
+    providerConfig: {
+      new(name, secretName, secretNamespace, secretKey):
+        raw.nogroup.v1beta1.providerConfig.new(name)
+        + raw.nogroup.v1beta1.providerConfig.metadata.withAnnotations({
+          'tanka.dev/namespaced': 'false',
+        })
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.withSource('Secret')
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withNamespace(secretNamespace)
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withName(secretName)
+        + raw.nogroup.v1beta1.providerConfig.spec.credentials.secretRef.withKey(secretKey),
+    },
+  },
+
+  cloud: {
+    local this = self,
+    stack: {
+      new(name, namespace, secretName, cloudProviderConfigName): {
+        stack:
+          raw.cloud.v1alpha1.stack.new(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.providerConfigRef.withName(cloudProviderConfigName)
+          + raw.cloud.v1alpha1.stack.spec.parameters.withExternalName(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.forProvider.withName(name)
+          + raw.cloud.v1alpha1.stack.spec.parameters.forProvider.withSlug(name),
+
+        serviceAccount: this.stackServiceAccount.fromStackResource(self.stack, namespace),
+        token: this.stackServiceAccountToken.fromStackServiceAccountResource(self.serviceAccount, namespace, secretName),
+        grafanaProviderConfig: root.global.providerConfig.new(name + '-grafana', namespace, secretName, 'instanceCredentials'),
+      },
+    },
+    stackServiceAccount: {
+      fromStackResource(stackResource, namespace):
+        raw.cloud.v1alpha1.stackServiceAccount.new(stackResource.metadata.name + '-admin')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withName('crossplaneManagementKey')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withRole('Admin')
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.cloudStackSelector.withMatchLabels({
+          'crossplane.io/claim-name': stackResource.spec.parameters.forProvider.name,
+          'crossplane.io/claim-namespace': namespace,
+        })
+        + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.withProviderConfigRef(
+          stackResource.spec.parameters.providerConfigRef
+        ),
+    },
+    stackServiceAccountToken: {
+      fromStackServiceAccountResource(stackServiceAccountResource, namespace, secretName):
+        raw.cloud.v1alpha1.stackServiceAccountToken.new(stackServiceAccountResource.metadata.name)
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.withName('crossplaneManagementToken')
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withName(secretName)
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withNamespace(namespace)
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.serviceAccountSelector.withMatchLabels({
+          'crossplane.io/claim-name': stackServiceAccountResource.spec.parameters.forProvider.name,
+          'crossplane.io/claim-namespace': namespace,
+        })
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.withCloudStackSelector(
+          stackServiceAccountResource.spec.parameters.forProvider.cloudStackSelector
+        )
+        + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.withProviderConfigRef(
+          stackServiceAccountResource.spec.parameters.providerConfigRef
+        ),
+    },
+  },
 
   oss: {
     '#': d.package.newSub('oss', ''),
