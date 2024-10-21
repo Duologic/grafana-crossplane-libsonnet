@@ -80,7 +80,7 @@ local raw = import './raw.libsonnet';
   cloud: {
     local this = self,
     stack: {
-      new(name, namespace, secretName, cloudProviderConfigName): {
+      new(name, namespace, cloudProviderConfigName, secretName=name + '-providerConfigToken'): {
         stack:
           raw.cloud.v1alpha1.stack.new(name)
           + raw.cloud.v1alpha1.stack.spec.parameters.providerConfigRef.withName(cloudProviderConfigName)
