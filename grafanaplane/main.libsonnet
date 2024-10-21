@@ -99,7 +99,7 @@ local raw = import './raw.libsonnet';
         + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withName('crossplaneManagementKey')
         + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.withRole('Admin')
         + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.forProvider.cloudStackSelector.withMatchLabels({
-          'crossplane.io/claim-name': stackResource.spec.parameters.forProvider.name,
+          'crossplane.io/claim-name': stackResource.metadata.name,
           'crossplane.io/claim-namespace': namespace,
         })
         + raw.cloud.v1alpha1.stackServiceAccount.spec.parameters.withProviderConfigRef(
@@ -113,7 +113,7 @@ local raw = import './raw.libsonnet';
         + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withName(secretName)
         + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.writeConnectionSecretToRef.withNamespace(namespace)
         + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.serviceAccountSelector.withMatchLabels({
-          'crossplane.io/claim-name': stackServiceAccountResource.spec.parameters.forProvider.name,
+          'crossplane.io/claim-name': stackServiceAccountResource.metadata.name,
           'crossplane.io/claim-namespace': namespace,
         })
         + raw.cloud.v1alpha1.stackServiceAccountToken.spec.parameters.forProvider.withCloudStackSelector(
